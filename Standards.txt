@@ -1,0 +1,7 @@
+
+* background-color: rgb(18, 18, 18)
+* on hover color : #2a2a2a
+
+* font : https://fonts.google.com/specimen/Inter
+
+* Our Dummy APIS : https://api.rawg.io/api/games?key=37838b368bf34ab0bb5403e02b716a84
