@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 import TopSeller from '../../Components/TopSeller/topSeller';
 import StoreSlider from '../../Components/StoreSlider/StoreSlider';
 import './Discover.css'
+import FreeGames from '../../Components/freeGames/freeGames';
+import { GamesOnSale } from '../../Components/gamesOnSale/gamesOnSale';
 
 
 const Discover = () => {
@@ -17,6 +19,12 @@ const Discover = () => {
         <section className=''>
             <section className='p-20'>
                 <StoreSlider></StoreSlider>
+            </section>
+            <section className='p-20'>
+                <GamesOnSale></GamesOnSale>  
+            </section>
+            <section className='p-20'>
+                <FreeGames></FreeGames>  
             </section>
             <section className='w-full h-full place-items-center'>
             <div  className='flex py-40 px-20  Container'>
