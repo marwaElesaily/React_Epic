@@ -42,7 +42,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <h5 className="container text-secondary text-start fs-3 my-5">
+      <h5 className="container text-secondary text-start fs-3 my-5 text-zinc-400 pt-3 pb-3">
         Resources
       </h5>
       <div className="container grid grid--footer text-start">
@@ -72,7 +72,7 @@ const Footer = () => {
         </nav>
       </div>
 
-      <h5 className="container text-secondary text-start fs-3  my-5">
+      <h5 className="container text-secondary text-start fs-3  my-5 text-zinc-400 pt-3 pb-3">
         Made By Epic Games
       </h5>
       <div className="container grid grid--footer text-start">
@@ -93,7 +93,7 @@ const Footer = () => {
         </nav>
       </div>
 
-      <div className="container divider mt-3 mb-5"></div>
+      <div className="container divider pt-5 mb-5"></div>
 
       <p className="container copyright grid text-start">
         Copyright &copy;2023, Epic Games, Inc. All rights reserved. Epic, Epic
