@@ -1,37 +1,37 @@
 import { Link } from "react-router-dom";
-import FooterLink from "./FooterLink";
+import "./Footer.css";
+import FooterLink from "../FooterLink/FooterLink";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900">
-      <div className="container mx-auto px-6 py-10">
+    <footer className="footer mr-20 ml-20">
+      <div className="container mx-auto logo-col text-start">
         <div className="flex justify-between">
-          <ul className="flex items-center">
-            <li className="mr-6">
-              <Link className="text-white" to="/#">
-                <ion-icon class="text-white" name="logo-facebook"></ion-icon>
+          <ul className="social-links">
+            <li>
+              <Link className="footer-link" to="/#">
+                <ion-icon class="social-icon" name="logo-facebook"></ion-icon>
               </Link>
             </li>
-            <li className="mr-6">
-              <Link className="text-white" to="/#">
-                <ion-icon class="text-white" name="logo-twitter"></ion-icon>
+            <li>
+              <Link className="footer-link" to="/#">
+                <ion-icon class="social-icon" name="logo-twitter"></ion-icon>
               </Link>
             </li>
-            <li className="mr-6">
-              <Link className="text-white" to="/#">
-                <ion-icon class="text-white" name="logo-youtube"></ion-icon>
+            <li>
+              <Link className="footer-link" to="/#">
+                <ion-icon class="social-icon" name="logo-youtube"></ion-icon>
               </Link>
             </li>
           </ul>
-
-          <Link to="/#" className="text-white">
+          <Link to="/#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-6 h-6"
+              className="icon w-6 h-6"
             >
               <path
                 stroke-linecap="round"
@@ -41,38 +41,85 @@ const Footer = () => {
             </svg>
           </Link>
         </div>
-        <h5 className="text-secondary text-start text-xl font-bold py-5">
-          Resources
-        </h5>
-        <div className="grid grid-cols-3 gap-4">
-          <nav className="col-span-1">
-            <ul className="text-white">
-              <FooterLink title="Support-A-Creator" />
-              <FooterLink title="Distribute on Epic Games" />
-              <FooterLink title="Careers" />
-              <FooterLink title="Company" />
-            </ul>
-          </nav>
+      </div>
+      <h5 className="container text-secondary text-start fs-3 my-5">
+        Resources
+      </h5>
+      <div className="container grid grid--footer text-start">
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Support-A-Creator" />
+            <FooterLink title="Distribute on Epic Games" />
+            <FooterLink title="Careers" />
+            <FooterLink title="Company" />
+          </ul>
+        </nav>
 
-          <nav className="col-span-1">
-            <ul className="text-white">
-              <FooterLink title="Fan Art Policy" />
-              <FooterLink title="UX Research" />
-              <FooterLink title="Store EULA" />
-            </ul>
-          </nav>
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Fan Art Policy" />
+            <FooterLink title="UX Research" />
+            <FooterLink title="Store EULA" />
+          </ul>
+        </nav>
 
-          <nav className="col-span-1">
-            <ul className="text-white">
-              <FooterLink title="Online Services" />
-              <FooterLink title="Community Rules" />
-              <FooterLink title="Epic Newsroom" />
-            </ul>
-          </nav>
-        </div>
-        <h5 className="text-secondary text-start text-xl font-bold py-5">
-          Made By Epic Games
-        </h5>
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Online Services" />
+            <FooterLink title="Community Rules" />
+            <FooterLink title="Epic Newsroom" />
+          </ul>
+        </nav>
+      </div>
+
+      <h5 className="container text-secondary text-start fs-3  my-5">
+        Made By Epic Games
+      </h5>
+      <div className="container grid grid--footer text-start">
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Battle Breakers" />
+            <FooterLink title="Fortnite" />
+            <FooterLink title="Infinity Blades" />
+          </ul>
+        </nav>
+
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Robo Recall" />
+            <FooterLink title="Shadow Complex" />
+            <FooterLink title="Unreal Tournament" />
+          </ul>
+        </nav>
+      </div>
+
+      <div className="container divider mt-3 mb-5"></div>
+
+      <p className="container copyright grid text-start">
+        Copyright &copy;2023, Epic Games, Inc. All rights reserved. Epic, Epic
+        Games, the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal
+        Engine, the Unreal Engine logo, Unreal Tournament, and the Unreal
+        Tournament logo are trademarks or registered trademarks of Epic Games,
+        Inc. in the United States of America and elsewhere. Other brands or
+        product names are the trademarks of their respective owners.
+      </p>
+
+      <div className="container grid grid--footer-sm-spacing mt-5">
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Terms of Service" />
+          </ul>
+        </nav>
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Privacy Policy" />
+          </ul>
+        </nav>
+        <nav className="nav-col">
+          <ul className="footer-nav">
+            <FooterLink title="Store Refund Policy" />
+          </ul>
+        </nav>
       </div>
     </footer>
   );
