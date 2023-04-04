@@ -1,9 +1,3 @@
-* {
-  font-family: "Cairo", sans-serif;
-  font-family: "Work Sans", sans-serif;
-  background-color: rgb(18, 18, 18);
-}
-
 .Container {
   justify-content: space-between;
   font-size: 14px !important;
