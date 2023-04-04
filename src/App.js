@@ -1,22 +1,20 @@
-import { Fragment } from "react";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
-import Account from "./Pages/Account/Account";
 import Discover from "./Pages/Discover/Discover";
+import Cart from "./Pages/Cart/Cart";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Fragment>
-      <div className="main">
-        <Navbar></Navbar>
-        <Discover></Discover>
-        <Footer></Footer>
-      </div>
-      <div className="account">
-        <Account />
-      </div>
-    </Fragment>
+    <div className="main">
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/" element={<Discover />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+      <Footer></Footer>
+    </div>
   );
 }
 

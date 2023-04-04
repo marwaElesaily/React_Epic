@@ -1,12 +1,13 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Discover", href: "#", current: false },
-  { name: "Browse", href: "#", current: false },
-  { name: "News", href: "#", current: false },
-  { name: "Wishlist", href: "#", current: false },
-  { name: "Cart", href: "#", current: false },
+  { name: "Discover", to: "#", current: false },
+  { name: "Browse", to: "#", current: false },
+  { name: "News", to: "#", current: false },
+  { name: "Wishlist", to: "#", current: false },
+  { name: "Cart", to: "/cart", current: false },
 ];
 
 function classNames(...classes) {
@@ -89,9 +90,9 @@ function Navbar() {
                     </form>
 
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
@@ -101,7 +102,7 @@ function Navbar() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

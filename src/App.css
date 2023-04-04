@@ -3,11 +3,6 @@
   background-color: rgb(18, 18, 18);
 }
 
-.account {
-  background-color: #f8f8f8;
-  padding: 50px 90px;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
