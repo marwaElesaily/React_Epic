@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Discover", to: "#", current: false },
+  { name: "Discover", to: "/", current: false },
   { name: "Browse", to: "#", current: false },
   { name: "News", to: "#", current: false },
   { name: "Wishlist", to: "#", current: false },
