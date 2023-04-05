@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Discover from "./Pages/Discover/Discover";
 import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
+import Account from "./Pages/Account/Account";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Discover />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
       <Footer></Footer>
     </div>
