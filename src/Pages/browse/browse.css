@@ -1,0 +1,20 @@
+.filter-smallDevices{
+    margin-left: 85%;
+}
+
+
+@media (max-width: 640px) {
+    .browse-filterSide{
+        display: none;
+    }
+    .filter-smallDevices{
+        margin-left: 65%;
+    }
+    .accor{
+        margin-top: 20px;
+        top: 50px;
+    }
+ }
+
+
+

@@ -1,0 +1,12 @@
+
+.filter-reset{
+    
+    display: flex;
+    justify-content:space-between;
+   
+    margin-bottom: 15px;
+}
+.reset{
+    font-size: 12px;
+    cursor: pointer;
+}
