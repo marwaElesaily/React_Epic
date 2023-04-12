@@ -59,24 +59,24 @@ const StoreSlider = () => {
   };
 
   return (
-    <div className={`${styles.sliderWrapper} bg-transparent`}>
+    <div className={`${styles.sliderWrapper} bg-transparent `}>
       {/* section start 0_0 */}
       <div
         className={`${styles.featured} w-fit bg-transparent`}
         style={{
           backgroundImage: `url(${MyGames[counter].background_image})`,
-          width: "70vw",
-          height: "80vh",
-          padding: "20px",
+          width: "60vw",
+          height: "72vh",
+          paddingTop: "20px",
           marginRight: "40px",
           borderRadius: "30px",
         }}
       >
         <div className={styles.itemText}>
-          <h3 className="bg-transparent text-left text-white text-xl ">
+          <h3 className=" text-left text-white text-xl ">
             {MyGames[counter].name}
           </h3>
-          <div className={`${styles.buttons} bg-transparent`}>
+          <div className={`${styles.buttons} `}>
             <a href="#!" className={`${styles.btn} ${styles.btnDownload}`}>
               DOWNLOAD NOW
             </a>
@@ -92,9 +92,10 @@ const StoreSlider = () => {
       </div>
       {/* section end */}
 
+      {/* <div > */}
       <ul
         className={styles.gamelist}
-        style={{ display: "flex", justifyContent: "center" }}
+        style={{ justifyContent: "center" }}
       >
         {MyGames.map((game, index) => (
           <li
@@ -133,6 +134,8 @@ const StoreSlider = () => {
           </li>
         ))}
       </ul>
+      {/* </div> */}
+
     </div>
   );
 };

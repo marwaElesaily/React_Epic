@@ -57,15 +57,16 @@ export function GamesOnSale() {
 
   return (
     <div className="container px-4">
-      <h2 className="text-white text-2xl text-left"> Games On Sale </h2>
+      <h2 className="text-white text-2xl text-left mb-8"> Games On Sale </h2>
       <Slider {...settings}>
         {MyGames.map((game, index) => {
           return (
             <div className="card border-0" key={index}>
               <div className="p-3">
                 <img
+                  className="rounded"
                   src={game.background_image}
-                  style={{ width: "90%", height: "250px" }}
+                  style={{ width: "90%", height: "250px", objectFit: 'cover' }}
                 />
                 <p className="base-game text-left">BASE GAME</p>
                 <p className="name text-left">{game.name}</p>
