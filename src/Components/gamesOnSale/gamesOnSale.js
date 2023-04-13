@@ -65,12 +65,12 @@ export function GamesOnSale() {
               <div className="p-3">
                 <img
                   className="rounded"
-                  src={game.background_image}
+                  src={game.Photos[0]}
                   style={{ width: "90%", height: "250px", objectFit: 'cover' }}
                 />
                 <p className="base-game text-left">BASE GAME</p>
-                <p className="name text-left">{game.name}</p>
-                <p className="price text-left">$19.99</p>
+                <p className="name text-left">{game.gameName}</p>
+                <p className="price text-left">${game.Price}</p>
                 <p className="text-white text-left">
                   Some text about the jeans..
                 </p>

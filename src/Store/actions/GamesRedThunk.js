@@ -16,7 +16,7 @@ const GamesRedThunk = () => {  // async
             // console.log(res.data.results);
             console.log(res.status);
             // dispatch({type:'SET_GAME',payload:res.data.results})
-            // console.log(res.data);
+            console.log(res.data);
             dispatch({type:'SET_GAME',payload:res.data})
 
         }).catch((err) => {
@@ -51,3 +51,4 @@ const GamesRedThunk = () => {  // async
 }
 
 export default GamesRedThunk;
+
