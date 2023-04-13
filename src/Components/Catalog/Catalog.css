@@ -1,0 +1,39 @@
+.inh2 {
+  color: rgba(211, 211, 211, 0.767);
+}
+
+#catalogCD {
+  padding: 12px;
+  width: 100%;
+  height: 23rem;
+  margin-left: 7%;
+  margin-bottom: 30px;
+}
+/* #catalogCD img {
+  cover
+} */
+#catalogIMG {
+  width: 54%;
+  border-radius: 20px;
+  object-fit: fill;
+}
+#catalogDIV {
+  width: 46%;
+  justify-content: center;
+  font-size: small;
+}
+
+/* 1024px */
+@media screen and (max-width: 768px) {
+  #catalogCD {
+    margin: 14%;
+    margin-left: 0px;
+    margin-right: 40px;
+  }
+  #catalogIMG {
+    width: 100%;
+  }
+  #catalogDIV {
+    width: 100%;
+  }
+}

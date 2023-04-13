@@ -1,0 +1,53 @@
+.inh {
+  color: rgba(211, 211, 211, 0.767);
+  /* color: inherit; */
+}
+.fotPP {
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.219);
+}
+.fotPP:hover {
+  border-bottom: 1px solid white;
+}
+.clPlus {
+  color: white;
+  border-radius: 30px;
+  border: 2px solid white;
+  width: 20px;
+  background-color: black;
+  font-weight: 700;
+  /* margin-left: 22%; */
+  /* margin-top: -13%; */
+  margin-left: 300px;
+  margin-top: -170px;
+  z-index: 11111;
+  position: absolute;
+}
+
+@media (min-width: 200px) and (max-width: 580px) {
+  .clPlus {
+    margin-left: 150px;
+    margin-top: -83px;
+  }
+}
+
+@media (min-width: 580px) and (max-width: 768px) {
+  .clPlus {
+    margin-left: 415px;
+    margin-top: -230px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .clPlus {
+    margin-left: 240px;
+    margin-top: -140px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .clPlus {
+    margin-left: 220px;
+    margin-top: -130px;
+  }
+}
