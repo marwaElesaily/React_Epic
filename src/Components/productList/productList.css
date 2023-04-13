@@ -1,0 +1,11 @@
+@media (max-width: 640px) {
+    .productList{
+       width: 40%;
+    }
+ }
+
+ @media (max-width: 1024px) {
+    .productList-img{
+       height: 15rem;
+    }
+ }

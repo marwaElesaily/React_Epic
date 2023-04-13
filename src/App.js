@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Discover from "./Pages/Discover/Discover";
 import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
-import Header from "./Pages/Header/Header";
+import Browse from "./Pages/browse/browse";
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Discover />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/browse" element={<Browse />} />
       </Routes>
       <Footer></Footer>
     </div>
