@@ -4,6 +4,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import Discover from "./Pages/Discover/Discover";
 import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
+import Browse from "./Pages/browse/browse";
+import Header from "./Pages/Header/Header";
 import Account from "./Pages/Account/Account";
 import AccountSetting from "./Components/AccountComponents/AccountSetting";
 import Password from "./Components/AccountComponents/Password";
@@ -15,6 +17,7 @@ import GameDetails from "./Pages/GameDetails/GameDetails";
 function App() {
   return (
     <div className="main">
+      <Header></Header>
       <Navbar></Navbar>
       {/* <GameDetails /> */}
       <Routes>

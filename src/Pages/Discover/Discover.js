@@ -8,6 +8,9 @@ import StoreSlider from "../../Components/StoreSlider/StoreSlider";
 import "./Discover.css";
 import FreeGames from "../../Components/freeGames/freeGames";
 import { GamesOnSale } from "../../Components/gamesOnSale/gamesOnSale";
+import { Collection } from "react-bootstrap-icons";
+import Collections from "../../Components/Collections/Collections";
+import Catalog from "../../Components/Catalog/Catalog";
 
 const Discover = () => {
   // const [search, setsearch] = useState("");

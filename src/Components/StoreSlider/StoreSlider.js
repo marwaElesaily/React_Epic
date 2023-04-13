@@ -1,43 +1,70 @@
 import React, { useEffect, useState } from "react";
 import styles from "./StoreSlider.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import changeGames from '../../Store/reducers/Games';
+import GamesRedThunk from "../../Store/actions/GamesRedThunk";
 
 const StoreSlider = () => {
   var [counter, setCounter] = useState(0);
 
   const MyGames = [
     {
-      name: "Grand Theft Auto V",
-      background_image:
-        "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
+      gameName: "Dead Island 2 Gold Edition",
+      Photos:[
+        "https://image.api.playstation.com/vulcan/ap/rnd/202208/2321/rNVDp1zmsYmtYxplFjNqzShE.jpg"
+        ]
     },
     {
-      name: "he Witcher 3: Wild Hunt",
-      background_image:
-        "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
+      gameName: "STAR WARS Jedi: Survivor™ Standard Edition",
+      Photos:[
+        "https://cdn2.unrealengine.com/egs-jedi-survivor-carousel-desktop-1280x702-e064efcb1338.jpg?h=720&quality=medium&resize=1&w=1280"
+        ]
     },
     {
-      name: "Portal 2",
-      background_image:
-        "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
+      gameName: "Redfall",
+      Photos:[
+        "https://cdn2.unrealengine.com/egs-redfall-carousel-desktop-1248x702-bf6c0a319751.jpg?h=720&quality=medium&resize=1&w=1280"
+        ]
     },
     {
-      name: "Tomb Raider (2013)",
-      background_image:
-        "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg",
+      gameName: "Dying Light 2 Stay Human",
+      Photos:[
+        "https://cdn2.unrealengine.com/egs-dying-light-2-carousel-desktop-1248x702-6fb8d402cc43.jpg?h=720&quality=medium&resize=1&w=1280"
+        ]
     },
     {
-      name: "Counter-Strike: Global Offensive",
-      background_image:
-        "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
+      gameName: "Tchia",
+      Photos:[
+        "https://cdn2.unrealengine.com/tchia-accoladegraphic-1920x1080-v3-1920x1080-d8510b78c553.jpg?h=480&quality=medium&resize=1&w=854"
+        ]
     },
     {
-      name: "Portal",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+      gameName: "Fall Guys",
+      Photos:[
+        "https://cdn2.unrealengine.com/egs-fall-guys-bugsnax-breaker-1920x1080-125701f5b397.jpg?h=480&quality=medium&resize=1&w=854"
+        ]
     },
   ];
   console.log(MyGames);
-  // console.log(MyGames[5].background_image);
+
+////////////////////////////////////////
+
+
+    // let MyGames = useSelector((state)=>state.changeGames); 
+    // MyGames = MyGames.Games;
+    // console.log(MyGames);
+
+    const dispatch = useDispatch(); 
+
+    useEffect(() => {
+        
+        console.log(MyGames);
+        
+        // use Redux Thunk
+        dispatch(GamesRedThunk());
+
+    }, [])
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,7 +91,7 @@ const StoreSlider = () => {
       <div
         className={`${styles.featured} w-fit bg-transparent`}
         style={{
-          backgroundImage: `url(${MyGames[counter].background_image})`,
+          backgroundImage: `url(${MyGames[counter].Photos[0]})`,
           width: "70vw",
           height: "80vh",
           padding: "20px",
@@ -74,7 +101,7 @@ const StoreSlider = () => {
       >
         <div className={styles.itemText}>
           <h3 className="bg-transparent text-left text-white text-xl ">
-            {MyGames[counter].name}
+            {MyGames[counter].gameName}
           </h3>
           <div className={`${styles.buttons} bg-transparent`}>
             <a href="#!" className={`${styles.btn} ${styles.btnDownload}`}>
@@ -116,7 +143,7 @@ const StoreSlider = () => {
               style={{ width: "100%", height: "100%" }}
             >
               <img
-                src={game.background_image}
+                src={game.Photos[0]}
                 alt="game"
                 style={{
                   width: "50px",
@@ -127,7 +154,7 @@ const StoreSlider = () => {
                 className="rounded-lg"
               />
               <p className="text-sm w-full h-full bg-transparent ">
-                {game.name}
+                {game.gameName}
               </p>
             </div>
           </li>
