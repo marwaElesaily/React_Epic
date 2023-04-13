@@ -6,6 +6,7 @@ import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
 import Browse from "./Pages/browse/browse";
 import Header from "./Pages/Header/Header";
+
 function App() {
   return (
     <div className="main">
