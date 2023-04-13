@@ -5,6 +5,10 @@ export default function FilterByPrice({ filterItem, setFilterItem}) {
     return (
         <>
          <div className="px-5 py-4">
+         <div className='h-10 flex items-center'>
+                <a href='#' className='w-full h-full block text-base text-zinc-400' id='free' onClick={onClickHandler}>
+                  Free</a>
+              </div>
               <div className='h-10 flex items-center'>
                 <a href='#' className='w-full h-full block text-base text-zinc-400' id='5' onClick={onClickHandler}>
                   Under $5.00</a>

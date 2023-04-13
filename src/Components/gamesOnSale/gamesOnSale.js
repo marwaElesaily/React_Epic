@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import GamesRedThunk from "./../../Store/actions/GamesRedThunk";
 
 export function GamesOnSale() {
+
+  
   let MyGames = useSelector((state) => state.changeGames);
   MyGames = MyGames.Games;
 

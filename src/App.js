@@ -10,7 +10,7 @@ import Header from "./Pages/Header/Header";
 function App() {
   return (
     <div className="main">
-      <Header className=" w-full h-full"></Header>
+      <Header></Header>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Discover />} />
