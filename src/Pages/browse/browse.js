@@ -5,80 +5,244 @@ import { useDispatch, useSelector } from "react-redux";
 import GamesRedThunk from "../../Store/actions/GamesRedThunk";
 import './browse.css'
 import Accordion from "../../Components/accordion/accordion";
-
+import Spinner from './../../Components/spinner/spinner';
+import changeCategories from "../../Store/actions/categories";
 
 
 function Browse() {
   let MyGames = useSelector((state) => state.changeGames);
   MyGames = MyGames.Games;
+  const loader = useSelector((state) => state.loader.loader)
+
+  const categories = useSelector((state) => state.categories.categories)
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GamesRedThunk());
-    console.log(MyGames);
+    dispatch(changeCategories());
   }, []);
+
+ 
   const [filterItem, setFilterItem] = useState('all')
   const [filterItemGenre, setFilterItemGenre] = useState('all')
   const [filterItemPlatform, setFilterItemPlatform] = useState('all')
-
+  
+  
   const filteredProductsByPrice = MyGames.filter((product) => {
-    if (filterItem === '5') return product.playtime < 5
-    else if (filterItem === '10') return product.playtime < 10
-    else if (filterItem === '20') return product.playtime < 20
-    else if (filterItem === '30') return product.playtime < 30
-    else if (filterItem === '14') return product.playtime >= 14
+   if(filterItem === 'free') return product.Price =='free'
+    else if (filterItem === '5') return product.Price < 5
+    else if (filterItem === '10') return product.Price < 10
+    else if (filterItem === '20') return product.Price < 20
+    else if (filterItem === '30') return product.Price < 30
+    else if (filterItem === '14') return product.Price >= 14
     else return product
   })
 
 
   var filteredProductsByGenre = filteredProductsByPrice
+  
+  
   if (filterItemGenre === 'action') {
     filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
-      for (let i = 0; i < product.genres.length; i++) {
-        if (product.genres[i].name === 'Action') {
-          return product
+      for (let i = 0; i < product.Genres.length; i++) {
+  
+        for(let j = 0; j < categories.length; j++){
+        
+          if (product.Genres[i]=== categories[j]._id) {
+          
+            if(categories[j].name ==='action'){
+            return product
+            }
+            
+          }
         }
+        
       }
     })
 
   }
   else if (filterItemGenre === 'shooter') {
-
     filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
-      for (let i = 0; i < product.genres.length; i++) {
-        if (product.genres[i]?.name === 'Shooter') {
-          return product
+      for (let i = 0; i < product.Genres.length; i++) {
+       
+        for(let j = 0; j < categories.length; j++){
+         
+          if (product.Genres[i]=== categories[j]._id) {
+           
+            if(categories[j].name ==='shooter'){
+             
+            return product
+            }
+            
+          }
         }
+        
       }
     })
+
+  } 
+  else if (filterItemGenre === 'Open World') {
+    filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
+      for (let i = 0; i < product.Genres.length; i++) {
+      
+        for(let j = 0; j < categories.length; j++){
+         
+          if (product.Genres[i]=== categories[j]._id) {
+         
+            if(categories[j].name ==='Open World'){
+            return product
+            }
+            
+          }
+        }
+        
+      }
+    })
+
+  } 
+  else if (filterItemGenre === 'RPG') {
+    filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
+      for (let i = 0; i < product.Genres.length; i++) {
+    
+        for(let j = 0; j < categories.length; j++){
+        
+          if (product.Genres[i]=== categories[j]._id) {
+          
+            if(categories[j].name ==='RPG'){
+            return product
+            }
+            
+          }
+        }
+        
+      }
+    })
+
   }
+  else if (filterItemGenre === 'Simulation') {
+    filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
+      for (let i = 0; i < product.Genres.length; i++) {
+        for(let j = 0; j < categories.length; j++){
+          if (product.Genres[i]=== categories[j]._id) {
+          
+            if(categories[j].name ==='Simulation'){
+            
+            return product
+            }
+            
+          }
+        }
+        
+      }
+    })
 
+  }
+  else if (filterItemGenre === 'Casual') {
+    filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
+      for (let i = 0; i < product.Genres.length; i++) {
+       
+        for(let j = 0; j < categories.length; j++){
+          if (product.Genres[i]=== categories[j]._id) {
+            if(categories[j].name ==='Casual'){
+            return product
+            }
+            
+          }
+        }
+        
+      }
+    })
 
+  }
+  else if (filterItemGenre === 'Survival') {
+    filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
+      for (let i = 0; i < product.Genres.length; i++) {
+        for(let j = 0; j < categories.length; j++){
+          
+          if (product.Genres[i]=== categories[j]._id) {
+          
+            if(categories[j].name ==='Survival'){
+             
+            return product
+            }
+            
+          }
+        }
+        
+      }
+    })
+
+  }
+  else if (filterItemGenre === 'Adventure') {
+    filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
+      for (let i = 0; i < product.Genres.length; i++) {
+        
+        for(let j = 0; j < categories.length; j++){
+       
+          if (product.Genres[i]=== categories[j]._id) {
+           
+            if(categories[j].name ==='Adventure'){
+           
+            return product
+            }
+            
+          }
+        }
+        
+      }
+    })
+
+  }
+  else if (filterItemGenre === 'Horror') {
+    filteredProductsByGenre = filteredProductsByPrice.filter((product) => {
+      for (let i = 0; i < product.Genres.length; i++) {
+     
+        for(let j = 0; j < categories.length; j++){
+        
+          if (product.Genres[i]=== categories[j]._id) {
+           
+            if(categories[j].name ==='Horror'){
+             
+            return product
+            }
+            
+          }
+        }
+        
+      }
+    })
+
+  }
+  
   var filteredProductsByPlatform = filteredProductsByGenre
   if (filterItemPlatform === 'windows') {
-    filteredProductsByPlatform = filteredProductsByGenre.filter((product) => {
-      for (let i = 0; i < product.parent_platforms.length; i++) {
-        if (product.parent_platforms[i].platform.slug === 'pc') {
-          return product
-        }
-      }
+    filteredProductsByPlatform = filteredProductsByGenre.filter((product) => { 
+      if (product.platForm=== 'windows') {
+            return product
+          }
     })
 
   }
   else if (filterItemPlatform === 'mac') {
-    filteredProductsByPlatform = filteredProductsByGenre.filter((product) => {
-      for (let i = 0; i < product.parent_platforms.length; i++) {
-        if (product.parent_platforms[i].platform.slug === 'mac') {
-          return product
-        }
+    filteredProductsByPlatform = filteredProductsByGenre.filter((product) => {   
+      if (product.platForm=== 'mac') {
+        return product
       }
     })
 
   }
 
+  const handelClearButton=()=>{
+    setFilterItem('all');
+    setFilterItemGenre('all') ;
+    setFilterItemPlatform('all');
+  }
+
   return (
     <>
+     {loader ? <Spinner /> : <div className="row row-cols-1 row-cols-md-3 g-4">
 
+            
       <div
         type="button"
         className="inline-block lg:hidden px-6 pb-2 pt-2.5 text-base cursor-pointer leading-normal text-white filter-smallDevices"
@@ -145,7 +309,10 @@ function Browse() {
                 className="inline-block  px-6 pb-2 pt-2.5 text-lg font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
                 data-te-modal-dismiss
                 data-te-ripple-init
-                data-te-ripple-color="light">
+                data-te-ripple-color="light"
+                onClick={ ()=>{ handelClearButton()}}
+                >
+
                 Clear
               </button>
             </div>
@@ -164,6 +331,8 @@ function Browse() {
         </div>
 
       </div>
+      </div>
+}
     </>
   );
 }

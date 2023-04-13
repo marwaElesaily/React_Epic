@@ -5,11 +5,11 @@ import Discover from "./Pages/Discover/Discover";
 import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
 import Browse from "./Pages/browse/browse";
-
+import Header from "./Pages/Header/Header";
 function App() {
   return (
     <div className="main">
-      <Header className=" w-full h-full"></Header>
+      <Header></Header>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Discover />} />

@@ -4,19 +4,11 @@ import axiosInstance from '../../axiosConfig/instanc';
 
 const GamesRedThunk = () => {  // async
 
-    // var [gameName, setgameName] = useState("");
-
     return (dispatch)=>{
         
-        // axiosInstance.get(`/games`,{
         axiosInstance.get(`/Games`,{
         }).then((res) => {
-            // console.log(res[0]);
-            // console.log(res[0].gameName);
-            // console.log(res.data.results);
-            console.log(res.status);
-            // dispatch({type:'SET_GAME',payload:res.data.results})
-            console.log(res.data);
+          
             dispatch({type:'SET_GAME',payload:res.data})
 
         }).catch((err) => {
