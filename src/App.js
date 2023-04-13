@@ -9,6 +9,7 @@ import Browse from "./Pages/browse/browse";
 function App() {
   return (
     <div className="main">
+      <Header className=" w-full h-full"></Header>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Discover />} />

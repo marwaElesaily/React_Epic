@@ -13,7 +13,7 @@ root.render(
   // <React.StrictMode>
     <BrowserRouter>
     <Provider store={store}>    {/*  To make all my app to see the store (my redux)     */}
-      <App/>
+      <App className='w-full h-full'/>
     </Provider>
     </BrowserRouter>
     // </React.StrictMode>

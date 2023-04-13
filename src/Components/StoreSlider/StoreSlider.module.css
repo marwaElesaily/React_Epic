@@ -1,12 +1,14 @@
 .sliderWrapper {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   overflow: hidden;
   height: fit-content;
   /* width: 100vw; */
   width: fit-content;
   margin-bottom: 3em;
   margin-right: 3rem;
+  margin-left: 3rem;
   /* position: absolute; */
 }
 
@@ -21,6 +23,12 @@
   background-repeat: no-repeat;
   border-radius: 4px 0 0 4px;
   transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
+  object-fit: contain;
+  /* padding: ; */
+  display: block;
+  max-width: 100%; /* Set the maximum width of the image to 100% of the container */
+  max-height: 100%;
+  /* height: auto; */
 }
 
 .featured .buttons {
@@ -36,6 +44,7 @@
   font-size: small;
   color: black;
   width: fit-content;
+  /* width: ; */
 }
 
 .featured .btn:hover {
@@ -67,11 +76,19 @@
   width: 40%;
   font-weight: bold;
   z-index: 2;
+  /* margin-top: 280px;
+  margin-left: 30px; */
+  position: absolute;
+  bottom: 0;
+  background-color: transparent;
+}
+/* background: rgba(0, 0, 0, 0.3); */
+.featured .itemText h3 {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .featured .itemText::before {
   position: absolute;
-  background: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 100%;
   content: "";
@@ -150,4 +167,33 @@
   border-radius: 4px;
   object-fit: cover;
   margin-left: 0.5em;
+}
+
+@media (max-width: 640px) {
+  .gamelist {
+    display: none;
+  }
+  .sliderWrapper {
+    height: 350px;
+    width: 100%;
+    margin: 0;
+  }
+  .featured {
+    object-fit: fill;
+    height: 10%;
+    width: 100%;
+    margin: 0;
+  }
+  .featured .itemText h3 {
+    font-size: 14px;
+  }
+  .featured .itemText .btnDownload {
+    font-size: 11px;
+  }
+  .featured .itemText .btnWishlist {
+    padding: 12px;
+    font-size: 14px;
+    margin-top: 22px;
+    height: auto;
+  }
 }

@@ -12,12 +12,18 @@
   cursor: pointer;
 }
 
-.slick-prev {
-  left: 100% !important;
+.slick-next:before {
+  /* left: 97% !important; */
+  /* right: 136% !important; */
+  bottom: 80%;
+  position: absolute;
 }
-
-.slick-next {
-  left: 97% !important;
+.slick-prev:before {
+  /* left: 97% !important; */
+  /* left: 950px; */
+  /* left: 4300%; */
+  bottom: 80%;
+  position: absolute;
 }
 
 .base-game {
