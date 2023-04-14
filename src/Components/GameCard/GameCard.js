@@ -17,7 +17,7 @@ const GameCard = (props) => {
       <div className={classes.rightCol}>
         <h4 className={classes.price}>${props.price}</h4>
         <div className={classes.buttons}>
-          <h6>Move to wishlist</h6>
+          <h6>Move to {props.moveTo}</h6>
           <h6>Remove</h6>
         </div>
       </div>

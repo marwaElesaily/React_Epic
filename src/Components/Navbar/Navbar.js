@@ -6,7 +6,7 @@ const navigation = [
   { name: "Discover", to: "/", current: false },
   { name: "Browse", to: "/browse", current: false },
   { name: "News", to: "#", current: false },
-  { name: "Wishlist", to: "#", current: false },
+  { name: "Wishlist", to: "/wishlist", current: false },
   { name: "Cart", to: "/cart", current: false },
   { name: "Account", to: "/account/setting", current: false },
 ];
@@ -17,7 +17,7 @@ function classNames(...classes) {
 
 function Navbar() {
   return (
-    <Disclosure as="nav" style={{backgroundColor:'rgb(18, 18, 18)'}}>
+    <Disclosure as="nav" style={{ backgroundColor: "rgb(18, 18, 18)" }}>
       {({ open }) => (
         <div>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
