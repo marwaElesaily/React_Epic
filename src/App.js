@@ -13,6 +13,7 @@ import Transactions from "./Components/AccountComponents/Transactions";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import GameDetails from "./Pages/GameDetails/GameDetails";
+import WishList from "./Pages/WishList/WishList";
 function App() {
   return (
     <div className="main">
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Discover />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<WishList />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />

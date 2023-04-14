@@ -1,0 +1,36 @@
+.sectionName {
+  color: white;
+  padding: 40px;
+}
+.wishlist {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+.games {
+  width: 100%;
+}
+.wishlistEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .wishlist {
+    flex-direction: column;
+  }
+  .games {
+    width: 100%;
+  }
+  .gamesSummary {
+    width: 100%;
+  }
+  .wishlist {
+    padding: 10px;
+    font-size: 12px;
+  }
+}

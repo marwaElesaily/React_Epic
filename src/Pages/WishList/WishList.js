@@ -1,9 +1,10 @@
-import { Fragment, useEffect } from "react";
-import classes from "./Cart.module.css";
-import { CartDashFill } from "react-bootstrap-icons";
-import CartGamesSummary from "../../Components/CartGamesSummary/CartGamesSummary";
+import { Fragment } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
-const Cart = () => {
+import CartGamesSummary from "../../Components/CartGamesSummary/CartGamesSummary";
+import classes from "./WishList.module.css";
+import { CartDashFill } from "react-bootstrap-icons";
+
+const WishList = () => {
   const games = [
     {
       id: 0,
@@ -46,30 +47,27 @@ const Cart = () => {
         gameName={game.gameName}
         price={game.price}
         imgURL={game.imgURL}
-        moveTo={"Wishlist"}
+        moveTo={"Cart"}
       ></GameCard>
     );
   });
   return (
     <Fragment>
-      <h1 className={classes.sectionName}>My Cart</h1>
-      <div className={classes.cart}>
+      <h1 className={classes.sectionName}>My WishList</h1>
+      <div className={classes.wishlist}>
         <div className={classes.games}>
           {games.length === 0 ? (
-            <h1 className={classes.cartEmpty}>
-              Your cart is empty
+            <h1 className={classes.wishlistEmpty}>
+              Your Wishlist is empty
               <CartDashFill />
             </h1>
           ) : (
             gamesList
           )}
         </div>
-        <div className={classes.gamesSummary}>
-          <CartGamesSummary />
-        </div>
       </div>
     </Fragment>
   );
 };
 
-export default Cart;
+export default WishList;
