@@ -13,7 +13,6 @@ import Transactions from "./Components/AccountComponents/Transactions";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import GameDetails from "./Pages/GameDetails/GameDetails";
-
 function App() {
   return (
     <div className="main">
@@ -23,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Discover />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/browse" element={<Browse />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/account" element={<Account />}>
