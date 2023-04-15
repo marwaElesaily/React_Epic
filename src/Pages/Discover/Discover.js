@@ -11,13 +11,15 @@ import { GamesOnSale } from '../../Components/gamesOnSale/gamesOnSale';
 import { Collection } from 'react-bootstrap-icons';
 import Collections from '../../Components/Collections/Collections';
 import Catalog from '../../Components/Catalog/Catalog';
-
+import { useTranslation } from 'react-i18next';
 
 const Discover = () => {
     
     // const [search, setsearch] = useState("");
 
     // py-40 px-20
+    const { t, i18n } = useTranslation();
+
     return (
         <section className=''>
             
@@ -45,10 +47,10 @@ const Discover = () => {
                 <div className='mb-7 Section md:grid-cols-2'>
                     <div className="flex mb-7 w-full header">
                         <p className="title text-2xl font-bold text-left text-white">
-                            Top Sellers
+                            {t('TopSellers')}
                         </p>
                         <button  className="titlebtnD text-white px-2 py-3 rounded-lg text-xs bg-transparent hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 ">
-                            VIEW MORE
+                        {t('viewMore')}
                         </button>
                     </div>
 
@@ -64,10 +66,10 @@ const Discover = () => {
                 <div className='mb-7 Section '> 
                     <div className="flex mb-7 w-full header">
                         <p className="title text-2xl font-bold text-left text-white ">
-                            Most Played
+                        {t('MostPlayed')}
                         </p> 
                         <button className="titlebtnD text-white px-2 py-3 rounded-lg text-xs bg-transparent hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 ">
-                            VIEW MORE
+                        {t('viewMore')}
                         </button> 
                     </div>
 
@@ -82,10 +84,10 @@ const Discover = () => {
                 <div className='mb-7 md:grid-cols-2 invisible md:visible' id='Section3'> 
                     <div className="flex mb-7 w-full header">
                         <p className="title text-2xl font-bold text-left text-white">
-                            Top Player Rating
+                        {t('TopPlayerRating')}
                         </p>  
                         <button className="titlebtnD text-white px-2 py-3 rounded-lg text-xs bg-transparent hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 ">
-                            VIEW MORE
+                        {t('viewMore')}
                         </button>  
                     </div>
 

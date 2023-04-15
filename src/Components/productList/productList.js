@@ -1,8 +1,11 @@
 import React from "react";
 import './productList.css'
+import { useTranslation } from 'react-i18next';
 function ProductList({ products }) {
 
-  // console.log(products);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language
+
   return (
     <>
       {(products.length > 0) ?
@@ -13,12 +16,12 @@ function ProductList({ products }) {
                 <img className="h-72 object-cover productList-img" src={product.Photos[0]} alt="" />
               </a>
               <div className="">
-                <p className="my-2 text-xs text-zinc-400">BASE GAME</p>
+                <p className="my-2 text-xs text-zinc-400">{lang==='en'?'BASE GAME':'اللعبة الاساسية'}</p>
                 <h5 className="mb-2 text-m font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                   {product.gameName}
                 </h5>
                 <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                  ${product.Price}
+                  {lang==='en'?`$${product.Price}`:`${new Intl.NumberFormat("ar-EG").format(product.Price)} US$`}
                 </p>
               </div>
             </div>

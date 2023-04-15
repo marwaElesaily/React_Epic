@@ -1,9 +1,11 @@
-
+import { useTranslation } from 'react-i18next';
 import FilterByGenres from '../filterBy/filterByGenre'
 import FilterByPlatform from '../filterBy/filterByPlatform'
 import FilterByPrice from '../filterBy/filterByPrice'
 
 export default function Accordion({ filterItem, setFilterItem, filterItemGenre, setFilterItemGenre, filterItemPlatform, setFilterItemPlatform }) {
+
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -18,7 +20,7 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
               data-te-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne">
-              PRICE
+              {t('accordion-price')}
               <span
                 className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                 <svg
@@ -58,7 +60,7 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
               data-te-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo">
-              GENRE
+              {t('accordion-genre')}
               <span
                 className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                 <svg
@@ -98,7 +100,7 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
               data-te-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree">
-              PLATFORM
+              {t('accordion-platform')}
               <span
                 className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                 <svg

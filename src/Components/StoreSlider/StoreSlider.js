@@ -3,8 +3,10 @@ import styles from "./StoreSlider.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import changeGames from '../../Store/reducers/Games';
 import GamesRedThunk from "../../Store/actions/GamesRedThunk";
+import { useTranslation } from 'react-i18next';
 
 const StoreSlider = () => {
+  const { t, i18n } = useTranslation();
   var [counter, setCounter] = useState(0);
 
   const MyGames = [
@@ -105,7 +107,7 @@ const StoreSlider = () => {
           </h3>
           <div className={`${styles.buttons} bg-transparent`}>
             <a href="#!" className={`${styles.btn} ${styles.btnDownload}`}>
-              DOWNLOAD NOW
+              {t('slider-downloadNow')}
             </a>
             <a
               href="#!"

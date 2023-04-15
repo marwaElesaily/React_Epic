@@ -6,7 +6,16 @@ import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
 import Browse from "./Pages/browse/browse";
 import Header from "./Pages/Header/Header";
+import cookie from 'js-cookie'
+import i18n from 'i18next';
+import { useEffect } from "react";
+
+
 function App() {
+
+  // const currentLanguageCode =cookies.get("i18n")||'en'
+  
+  
   return (
     <div className="main">
       <Header></Header>

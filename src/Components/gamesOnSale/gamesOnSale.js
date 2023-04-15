@@ -5,13 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import GamesRedThunk from "./../../Store/actions/GamesRedThunk";
+import { useTranslation } from 'react-i18next';
 
 export function GamesOnSale() {
 
   
   let MyGames = useSelector((state) => state.changeGames);
   MyGames = MyGames.Games;
-
+  const { t, i18n } = useTranslation();
+  const lang=i18n.language
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GamesRedThunk());
@@ -59,7 +61,7 @@ export function GamesOnSale() {
 
   return (
     <div className="container px-4">
-      <h2 className="text-white text-2xl text-left mb-8"> Games On Sale </h2>
+      <h2 className="text-white text-2xl text-left mb-8">{t('gamesOnSale')}</h2>
       <Slider {...settings}>
         {MyGames.map((game, index) => {
           return (
@@ -70,9 +72,10 @@ export function GamesOnSale() {
                   src={game.Photos[0]}
                   style={{ width: "90%", height: "250px", objectFit: 'cover' }}
                 />
-                <p className="base-game text-left">BASE GAME</p>
+                {/* {lang==='en'?'BASE GAME':'اللعبة الاساسية'} */}
+                <p className="base-game text-left"> {lang==='en'?'BASE GAME':'اللعبة الاساسية'}</p>
                 <p className="name text-left">{game.gameName}</p>
-                <p className="price text-left">${game.Price}</p>
+                <p className="price text-left">{lang==='en'?`$${game.Price}`:`${new Intl.NumberFormat("ar-EG").format(game.Price)} US$`}</p>
                 <p className="text-white text-left">
                   Some text about the jeans..
                 </p>

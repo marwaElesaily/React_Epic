@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import changeGames from './Games';
 import loaderReducer from "./loader";
 import categoriesReducer from "./categories";
+import languageReducer from "./language";
 
 export default combineReducers({
 
@@ -11,5 +12,6 @@ export default combineReducers({
     // removeFav:removeFav,
     changeGames:changeGames,
     loader:loaderReducer,
-    categories:categoriesReducer
+    categories:categoriesReducer,
+    language:languageReducer
 })
