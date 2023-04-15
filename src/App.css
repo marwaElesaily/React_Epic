@@ -6,9 +6,7 @@
 body {
   width: full;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* .account {
+  height: 1000px;
+  color: black;
+} */

@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import classes from "./CartGamesSummary.module.css";
 const CartGamesSummary = () => {
   // const totalPrice = useSelector((state) => state.games.totalPrice);

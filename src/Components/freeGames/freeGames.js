@@ -44,4 +44,4 @@ const FreeGames = () => {
     )
 }
 
-export default FreeGames
+export default FreeGames;

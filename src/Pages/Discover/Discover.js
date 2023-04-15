@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // import { Outlet } from 'react-router-dom';
 // import { useEffect } from 'react';
 // import axios from 'axios'
@@ -14,8 +14,7 @@ import Catalog from '../../Components/Catalog/Catalog';
 import { useTranslation } from 'react-i18next';
 
 const Discover = () => {
-    
-    // const [search, setsearch] = useState("");
+  // const [search, setsearch] = useState("");
 
     // py-40 px-20
     const { t, i18n } = useTranslation();
@@ -113,4 +112,3 @@ const Discover = () => {
 }
 
 export default Discover;
-
