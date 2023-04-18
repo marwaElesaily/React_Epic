@@ -1,5 +1,10 @@
+import { useTranslation } from 'react-i18next';
+
 export default function FilterByPrice({ filterItem, setFilterItem}) {
-    const onClickHandler = (evt) => {
+    
+  const { t, i18n } = useTranslation();
+  
+  const onClickHandler = (evt) => {
         setFilterItem(evt.target.id)
     }
     return (
@@ -7,27 +12,27 @@ export default function FilterByPrice({ filterItem, setFilterItem}) {
          <div className="px-5 py-4">
          <div className='h-10 flex items-center'>
                 <a href='#' className='w-full h-full block text-base text-zinc-400' id='free' onClick={onClickHandler}>
-                  Free</a>
+              {t("price-free")}</a>
               </div>
               <div className='h-10 flex items-center'>
                 <a href='#' className='w-full h-full block text-base text-zinc-400' id='5' onClick={onClickHandler}>
-                  Under $5.00</a>
+                {t("price-5")}</a>
               </div>
               <div className='h-10 flex items-center'>
                 <a href='#' className='w-full h-full block text-base text-zinc-400' id='10' onClick={onClickHandler}>
-                  Under $10.00</a>
+                {t("price-10")}</a>
               </div>
               <div className='h-10 flex items-center'>
                 <a href='#' className='w-full h-full block text-base text-zinc-400' id='20' onClick={onClickHandler}>
-                  Under $20.00</a>
+                {t("price-20")}</a>
               </div>
               <div className='h-10 flex items-center'>
                 <a href='#' className='w-full h-full block text-base text-zinc-400' id='30' onClick={onClickHandler}>
-                  Under $30.00</a>
+                {t("price-30")}</a>
               </div>
               <div className='h-10 flex items-center'>
                 <a href='#' className='w-full h-full block text-base text-zinc-400' id='14' onClick={onClickHandler}>
-                  $14.00 and above</a>
+                {t("price-14")}</a>
               </div>
             </div>
         </>

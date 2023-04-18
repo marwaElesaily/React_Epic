@@ -1,21 +1,25 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
-const navigation = [
-  { name: "Discover", to: "/", current: false },
-  { name: "Browse", to: "/browse", current: false },
-  { name: "News", to: "#", current: false },
-  { name: "Wishlist", to: "/wishlist", current: false },
-  { name: "Cart", to: "/cart", current: false },
-  { name: "Account", to: "/account/setting", current: false },
-];
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function Navbar() {
+
+  const { t, i18n } = useTranslation();
+
+  const navigation = [
+    { name: t('discover'), to: "/", current: false },
+    { name:  t('browse'), to: "/browse", current: false },
+    { name:  t('news'), to: "#", current: false },
+    { name:  t('wishlist'), to: "#", current: false },
+    { name: t('cart'), to: "/cart", current: false },
+  ];
   return (
     <Disclosure as="nav" style={{ backgroundColor: "rgb(18, 18, 18)" }}>
       {({ open }) => (
@@ -84,7 +88,7 @@ function Navbar() {
                           type="text"
                           id="simple-search"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Search"
+                          placeholder={t('search')}
                           required
                         />
                       </div>
@@ -113,7 +117,7 @@ function Navbar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
+              {/* {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"
@@ -128,7 +132,7 @@ function Navbar() {
                 >
                   {item.name}
                 </Disclosure.Button>
-              ))}
+              ))} */}
             </div>
           </Disclosure.Panel>
         </div>

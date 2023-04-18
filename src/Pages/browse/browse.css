@@ -1,20 +1,59 @@
-.filter-smallDevices{
+.filter-smallDevices {
     margin-left: 85%;
 }
 
+[dir="rtl"] .p {
+    margin-right: 100px;
+}
+
+@media (max-width: 1024px) {
+    [dir="rtl"] .p {
+        margin-right: 0px;
+    }
+}
 
 @media (max-width: 640px) {
-    .browse-filterSide{
+    .browse-filterSide {
         display: none;
     }
-    .filter-smallDevices{
-        margin-left: 65%;
+
+    .filter-smallDevices {
+        margin-left: 65vw;
     }
-    .accor{
+
+    .accor {
         margin-top: 20px;
         top: 50px;
+
     }
- }
 
+    #exampleModalLabel {
+        /* margin-left: 100px; */
+        margin-top: 30px;
+    }
 
+    .filter-button {
+        margin-left: 80vw;
+        margin-top: 30px;
+    }
 
+    [dir="rtl"] .p {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #exampleModalLabel {
+        margin-top: 30px;
+    }
+
+    .filter-button {
+
+        margin-top: 30px;
+    }
+
+    [dir="rtl"] .p {
+        margin-right: 0;
+    }
+
+}

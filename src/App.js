@@ -15,6 +15,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import GameDetails from "./Pages/GameDetails/GameDetails";
 import WishList from "./Pages/WishList/WishList";
 function App() {
+    
   return (
     <div className="main">
       <Header></Header>

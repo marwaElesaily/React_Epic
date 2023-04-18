@@ -1,5 +1,8 @@
+import { useTranslation } from 'react-i18next';
+
 export default function FilterByPlatform({ filterItemPlatform, setFilterItemPlatform }) {
-    const onClickHandler = (evt) => {
+  
+  const onClickHandler = (evt) => {
         setFilterItemPlatform(evt.target.id)
     }
     return (
@@ -7,11 +10,11 @@ export default function FilterByPlatform({ filterItemPlatform, setFilterItemPlat
         <div className="px-5 py-4">
         <div className='h-10 flex items-center'>
           <a href='#' className='w-full h-full block text-base text-zinc-400'id='windows' onClick={onClickHandler}>
-          windows</a>
+          Windows</a>
         </div>
         <div className='h-10 flex items-center'>
           <a href='#' className='w-full h-full block text-base text-zinc-400'id='mac' onClick={onClickHandler}>
-          mac</a>
+          Mac OS</a>
         </div>
         
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Header.css";
 // import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
@@ -7,8 +7,9 @@ import { Menu, Transition } from "@headlessui/react";
 // import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Disclosure } from "@headlessui/react";
-
-
+import { useTranslation } from 'react-i18next';
+import i18n, { changeLanguage } from 'i18next';
+import { useDispatch, useSelector } from "react-redux";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -16,6 +17,25 @@ function classNames(...classes) {
 
 const Header = () => {
   const user = "SIGN IN";
+  const lang = useSelector((state) => state.language.Language)
+  console.log(lang);
+  const dispatch = useDispatch()
+  const { t, i18n } = useTranslation();
+  let currentLanguage = i18n.language
+  // console.log(currentLanguage);
+ 
+  useEffect(() => {
+    currentLanguage === 'ar' ? document.body.dir = 'rtl' : document.body.dir = 'ltr'
+    
+    // dispatch(changeLanguage(currentLanguage));
+    
+  }, [currentLanguage])
+
+  
+  
+  
+ 
+
 
   return (<>
     <div className="flex w-full">
@@ -36,7 +56,7 @@ const Header = () => {
               aria-current="page"
               id="stlink"
             >
-              STORE
+              {t('store')}
             </Link>
           </a>
 
@@ -116,6 +136,10 @@ const Header = () => {
                               active ? " text-white" : "text-inherit",
                               "block px-4 py-2 text-sm"
                             )} text-center text-xs`}
+                            onClick={() => {
+                              i18n.changeLanguage('ar')
+                              currentLanguage = 'ar'
+                            }}
                           >
                             العربية
                           </a>
@@ -129,6 +153,10 @@ const Header = () => {
                               active ? " text-white" : "text-inherit",
                               "block px-4 py-2 text-sm"
                             )} text-center text-xs`}
+                            onClick={() => {
+                              i18n.changeLanguage('en')
+                              currentLanguage = 'en'
+                            }}
                           >
                             English
                           </a>
@@ -143,7 +171,7 @@ const Header = () => {
                 <div style={{ color: "#c2c2c2" }} className="flex ">
                   <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 bg-transparent pr-8 pl-2 text-sm items-center text-inherit hover:text-white">
                     <i className="bi bi-person-fill block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 text-xl md:dark:bg-transparent pb-4  text-inherit hover:text-white"></i>
-                    {user}
+                    {t("signIn")}
                   </Menu.Button>
                 </div>
 
@@ -171,7 +199,7 @@ const Header = () => {
                               "block px-4 py-2 text-sm"
                             )} text-center text-xs`}
                           >
-                            ACCOUNT
+                            {t("signIn-account")}
                           </a>
                         )}
                       </Menu.Item>
@@ -185,7 +213,7 @@ const Header = () => {
                               "block px-4 py-2 text-sm"
                             )} text-center text-xs`}
                           >
-                            WISHLIST
+                            {t("signIn-wishlist")}
                           </a>
                         )}
                       </Menu.Item>
@@ -201,7 +229,7 @@ const Header = () => {
                                 "block w-full px-4 py-2 text-left text-sm"
                               )} text-center text-xs`}
                             >
-                              SIGN OUT
+                              {t("signIn-signout")}
                             </button>
                           )}
                         </Menu.Item>
@@ -234,7 +262,7 @@ const Header = () => {
         className=" h-full pl-3 pr-4 text-sm md:p-0 md:block hidden items-center text-center hover:text-white"
         style={{ height: '100%' }}
       >
-        Download
+        {t("downloadButton")}
       </a>
 
     </div>
