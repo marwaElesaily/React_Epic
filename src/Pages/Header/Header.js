@@ -31,12 +31,6 @@ const Header = () => {
     
   }, [currentLanguage])
 
-  
-  
-  
- 
-
-
   return (<>
     <div className="flex w-full">
       <nav
@@ -48,6 +42,7 @@ const Header = () => {
           style={{ color: "#c2c2c2" }}
         >
           <a href="#" className="flex h-full items-center ">
+            {/* <img src="epic white logo.png" className="h-8 mr-3 px-3" alt="epic Logo" /> */}
             <img src="epic white logo.png" className="h-8 mr-3 px-3" alt="epic Logo" />
 
             <Link

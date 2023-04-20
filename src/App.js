@@ -18,7 +18,7 @@ function App() {
     
   return (
     <div className="main">
-      <Header></Header>
+      <Header></Header> 
       <Navbar></Navbar>
       {/* <GameDetails /> */}
       <Routes>

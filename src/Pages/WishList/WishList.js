@@ -3,8 +3,10 @@ import GameCard from "../../Components/GameCard/GameCard";
 import CartGamesSummary from "../../Components/CartGamesSummary/CartGamesSummary";
 import classes from "./WishList.module.css";
 import { CartDashFill } from "react-bootstrap-icons";
+import { useTranslation } from 'react-i18next';
 
 const WishList = () => {
+  const { t, i18n } = useTranslation();
   const games = [
     {
       id: 0,
@@ -47,18 +49,18 @@ const WishList = () => {
         gameName={game.gameName}
         price={game.price}
         imgURL={game.imgURL}
-        moveTo={"Cart"}
+        moveTo={t('cart')}
       ></GameCard>
     );
   });
   return (
     <Fragment>
-      <h1 className={classes.sectionName}>My WishList</h1>
+      <h1 className={classes.sectionName}>{t('MyWishList')}</h1>
       <div className={classes.wishlist}>
         <div className={classes.games}>
           {games.length === 0 ? (
             <h1 className={classes.wishlistEmpty}>
-              Your Wishlist is empty
+              {t('wishlistEmpty')}
               <CartDashFill />
             </h1>
           ) : (
