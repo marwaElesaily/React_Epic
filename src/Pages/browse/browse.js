@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import ProductList from "../../Components/productList/productList";
 import FilterSide from "../../Components/filterSide/filterSide";
 import { useDispatch, useSelector } from "react-redux";
-import GamesRedThunk from "../../Store/actions/GamesRedThunk";
 import "./Browse.css";
 import Accordion from "../../Components/accordion/accordion";
 import Spinner from "../../Components/spinner/spinner";
-import changeCategories from "../../Store/actions/categories";
 import { useTranslation } from "react-i18next";
 import { getCategories, getGames } from "../../Store/store";
 

@@ -17,9 +17,9 @@ import WishList from "./Pages/WishList/WishList";
 function App() {
   return (
     <div className="main">
-      <Browse></Browse>
+      {/* <Browse></Browse> */}
       {/* <GameDetails /> */}
-      {/* <Header></Header>
+      <Header></Header>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Discover />} />
@@ -34,7 +34,7 @@ function App() {
           <Route path="transactions" element={<Transactions />} />
         </Route>
       </Routes>
-      <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 }

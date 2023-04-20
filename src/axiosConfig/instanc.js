@@ -1,6 +1,5 @@
 import axios from "axios";
 import store from "./../Store/store";
-import { changeLoader } from "../Store/actions/loader";
 
 const axiosInstance = axios.create({
   // https://api.rawg.io/api/games?key=37838b368bf34ab0bb5403e02b716a84
@@ -21,27 +20,27 @@ const axiosInstance = axios.create({
   },
 });
 
-axiosInstance.interceptors.request.use(
-  (config) => {
-    store.dispatch(changeLoader(true));
-    // setTimeout(() => {
+// axiosInstance.interceptors.request.use(
+//   (config) => {
+//     store.dispatch(changeLoader(true));
+//     // setTimeout(() => {
 
-    // }, 10000);
-    return config;
-  },
-  (err) => {
-    return Promise.reject(err);
-  }
-);
+//     // }, 10000);
+//     return config;
+//   },
+//   (err) => {
+//     return Promise.reject(err);
+//   }
+// );
 
-axiosInstance.interceptors.response.use(
-  (res) => {
-    store.dispatch(changeLoader(false));
-    return res;
-  },
-  (err) => {
-    Promise.reject(err);
-  }
-);
+// axiosInstance.interceptors.response.use(
+//   (res) => {
+//     store.dispatch(changeLoader(false));
+//     return res;
+//   },
+//   (err) => {
+//     Promise.reject(err);
+//   }
+// );
 
 export default axiosInstance;

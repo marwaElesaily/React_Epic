@@ -10,6 +10,7 @@ const epicState = {
   games: [],
   categories: [],
   loader: false,
+  language: "en",
 };
 
 export const getGames = createAsyncThunk(
@@ -27,12 +28,7 @@ export const getCategories = createAsyncThunk(
   "epic/getCategories",
   async () => {
     try {
-      const res = await axios.get("http://localhost:5555/Category", {
-        headers: {
-          Authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBjYjcwZWMxNTIwNWE5NTk0OGIzMjciLCJkaXNwbGF5TmFtZSI6InNhZmEiLCJpYXQiOjE2ODExMzI4ODJ9.Xb5CHrdvSQg5DiFw99Pvt9LWHHgVaGGwNJHC9LqQ5nY",
-        },
-      });
+      const res = await axiosInstance.get("Category");
       return res.data;
     } catch (err) {}
   }
@@ -41,7 +37,11 @@ export const getCategories = createAsyncThunk(
 const epicSlice = createSlice({
   name: "epic",
   initialState: epicState,
-  reducers: {},
+  reducers: {
+    changeLang(state, action) {
+      state.language = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     /// getGames
     builder.addCase(getGames.pending, (state) => {

@@ -4,19 +4,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
-import GamesRedThunk from "./../../Store/actions/GamesRedThunk";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import { getGames } from "../../Store/store";
 
 export function GamesOnSale() {
-
-  
-  let MyGames = useSelector((state) => state.changeGames);
-  MyGames = MyGames.Games;
+  let MyGames = useSelector((state) => state.epic.games);
   const { t, i18n } = useTranslation();
-  const lang=i18n.language
+  const lang = i18n.language;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(GamesRedThunk());
+    dispatch(getGames());
   }, []);
   const settings = {
     dots: false,
@@ -61,7 +58,7 @@ export function GamesOnSale() {
 
   return (
     <div className="container px-4">
-      <h2 className="text-white text-2xl text-left mb-8">{t('gamesOnSale')}</h2>
+      <h2 className="text-white text-2xl text-left mb-8">{t("gamesOnSale")}</h2>
       <Slider {...settings}>
         {MyGames.map((game, index) => {
           return (
@@ -70,12 +67,21 @@ export function GamesOnSale() {
                 <img
                   className="rounded"
                   src={game.Photos[0]}
-                  style={{ width: "90%", height: "250px", objectFit: 'cover' }}
+                  style={{ width: "90%", height: "250px", objectFit: "cover" }}
                 />
                 {/* {lang==='en'?'BASE GAME':'اللعبة الاساسية'} */}
-                <p className="base-game text-left"> {lang==='en'?'BASE GAME':'اللعبة الاساسية'}</p>
+                <p className="base-game text-left">
+                  {" "}
+                  {lang === "en" ? "BASE GAME" : "اللعبة الاساسية"}
+                </p>
                 <p className="name text-left">{game.gameName}</p>
-                <p className="price text-left">{lang==='en'?`$${game.Price}`:`${new Intl.NumberFormat("ar-EG").format(game.Price)} US$`}</p>
+                <p className="price text-left">
+                  {lang === "en"
+                    ? `$${game.Price}`
+                    : `${new Intl.NumberFormat("ar-EG").format(
+                        game.Price
+                      )} US$`}
+                </p>
                 <p className="text-white text-left">
                   Some text about the jeans..
                 </p>
