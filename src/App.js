@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Discover from "./Pages/Discover/Discover";
 import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
-import Browse from "./Pages/browse/browse";
+import Browse from "./Pages/Browse/Browse";
 import Header from "./Pages/Header/Header";
 import Account from "./Pages/Account/Account";
 import AccountSetting from "./Components/AccountComponents/AccountSetting";
@@ -15,12 +15,12 @@ import SignUp from "./Pages/SignUp/SignUp";
 import GameDetails from "./Pages/GameDetails/GameDetails";
 import WishList from "./Pages/WishList/WishList";
 function App() {
-    
   return (
     <div className="main">
-      <Header></Header>
-      <Navbar></Navbar>
+      <Browse></Browse>
       {/* <GameDetails /> */}
+      {/* <Header></Header>
+      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Discover />} />
         <Route path="/cart" element={<Cart />} />
@@ -34,7 +34,7 @@ function App() {
           <Route path="transactions" element={<Transactions />} />
         </Route>
       </Routes>
-      <Footer></Footer>
+      <Footer></Footer> */}
     </div>
   );
 }
