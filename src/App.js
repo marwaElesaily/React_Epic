@@ -4,7 +4,6 @@ import Navbar from "./Components/Navbar/Navbar";
 import Discover from "./Pages/Discover/Discover";
 import Cart from "./Pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
-import Browse from "./Pages/Browse/Browse";
 import Header from "./Pages/Header/Header";
 import Account from "./Pages/Account/Account";
 import AccountSetting from "./Components/AccountComponents/AccountSetting";
@@ -14,6 +13,9 @@ import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import GameDetails from "./Pages/GameDetails/GameDetails";
 import WishList from "./Pages/WishList/WishList";
+import Browse from "./Pages/Browse/Browse";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 function App() {
   return (
     <div className="main">
@@ -26,6 +28,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="/browse" element={<Browse />} />
+        <Route path="/gameDetails/:id" element={<GameDetails />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/account" element={<Account />}>

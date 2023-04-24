@@ -6,16 +6,19 @@ import React, { useState } from "react";
 import TopSeller from "../../Components/TopSeller/TopSeller";
 import StoreSlider from "../../Components/StoreSlider/StoreSlider";
 import "./Discover.css";
-import FreeGames from "../../Components/freeGames/freeGames";
-import { GamesOnSale } from "../../Components/gamesOnSale/gamesOnSale";
+import FreeGames from "../../Components/freeGames/FreeGames";
+import { GamesOnSale } from "../../Components/gamesOnSale/GamesOnSale";
 import { Collection } from "react-bootstrap-icons";
 import Collections from "../../Components/Collections/Collections";
 import Catalog from "../../Components/Catalog/Catalog";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 const Discover = () => {
   // const [search, setsearch] = useState("");
-
+  useEffect(() => {
+    // console.log(JSON.parse(localStorage.getItem("user")));
+  }, []);
   // py-40 px-20
   const { t, i18n } = useTranslation();
 

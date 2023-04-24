@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
 import "./Header.css";
 // import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
-import { Fragment } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 // import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -10,27 +9,39 @@ import { Disclosure } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import i18n, { changeLanguage } from "i18next";
 import { useDispatch, useSelector } from "react-redux";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { useEffect } from "react";
+import { epicActions } from "../../Store/Store";
 
 const Header = () => {
+  const navigate = useNavigate();
   const user = "SIGN IN";
   const lang = useSelector((state) => state.epic.language);
-  console.log(lang);
+  const displayName = useSelector((state) => state.epic.displayName);
+  const loggedIn = useSelector((state) => state.epic.loggedIn);
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   let currentLanguage = i18n.language;
-  // console.log(currentLanguage);
-
   useEffect(() => {
     currentLanguage === "ar"
       ? (document.body.dir = "rtl")
       : (document.body.dir = "ltr");
+    console.log(displayName);
+    console.log("hello");
 
     // dispatch(changeLanguage(currentLanguage));
-  }, [currentLanguage]);
+  }, [loggedIn, displayName, currentLanguage]);
+
+  // console.log(currentLanguage);
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+
+  function signoutHandler(e) {
+    e.preventDefault();
+    dispatch(epicActions.signOut());
+    navigate("/signIn");
+  }
 
   return (
     <>
@@ -173,7 +184,8 @@ const Header = () => {
                   <div style={{ color: "#c2c2c2" }} className="flex ">
                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 bg-transparent pr-8 pl-2 text-sm items-center text-inherit hover:text-white">
                       <i className="bi bi-person-fill block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 text-xl md:dark:bg-transparent pb-4  text-inherit hover:text-white"></i>
-                      {t("signIn")}
+                      {loggedIn ? displayName : t("signIn")}
+                      {/* {t("signIn")} */}
                     </Menu.Button>
                   </div>
 
@@ -223,6 +235,7 @@ const Header = () => {
                           <Menu.Item>
                             {({ active }) => (
                               <button
+                                onClick={signoutHandler}
                                 type="submit"
                                 className={`${classNames(
                                   active ? " text-white" : "text-inherit",

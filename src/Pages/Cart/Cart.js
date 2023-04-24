@@ -3,50 +3,31 @@ import classes from "./Cart.module.css";
 import { CartDashFill } from "react-bootstrap-icons";
 import CartGamesSummary from "../../Components/CartGamesSummary/CartGamesSummary";
 import GameCard from "../../Components/GameCard/GameCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartList, removeFromCart } from "../../Store/Store";
 const Cart = () => {
-  const games = [
-    {
-      id: 0,
-      gameName: "Marvel's Spider-Man Remastered",
-      platform: "windows",
-      price: 6.09,
-      imgURL:
-        "https://cdn1.epicgames.com/offer/4bc43145bb8245a5b5cc9ea262ffbe0e/EGS_MarvelsSpiderManRemastered_InsomniacGamesNixxesSoftware_S1_2560x1440-73702d11161b29a0b7c40a8b489b1808",
-    },
-    {
-      id: 1,
-      gameName: "PUBG",
-      platform: "windows",
-      price: 6.09,
-      imgURL: "https://i.ebayimg.com/images/g/NFYAAOSwtoVbOU2~/s-l500.jpg",
-    },
-    {
-      id: 2,
-      gameName: "Need For Speed",
-      platform: "mac",
-      price: 6.09,
-      imgURL:
-        "https://cdnb.artstation.com/p/assets/images/images/020/435/641/large/sneaky-arts-80s-heat-min.jpg?1567753592",
-    },
-    {
-      id: 3,
-      gameName: "ICY TOWER",
-      platform: "mac",
-      price: 6.09,
-      imgURL:
-        "https://m.media-amazon.com/images/M/MV5BZmRkMDZhNzctYzkwZi00MTk3LWJkZDUtNGE1NDczODk0N2M1XkEyXkFqcGdeQXVyMTA3OTExMjU2._V1_FMjpg_UX1000_.jpg",
-    },
-  ];
+  const games = useSelector((state) => state.epic.cart);
+  const id = useSelector((state) => state.epic.id);
+  const loader = useSelector((state) => state.epic.loader);
+  const dispatch = useDispatch();
+  function removeFromCartHandler(gameId) {
+    dispatch(removeFromCart({ userId: id, gameId }));
+  }
+  useEffect(() => {
+    dispatch(getCartList({ id }));
+  }, []);
 
   const gamesList = games.map((game) => {
     return (
       <GameCard
-        key={game.id}
+        key={game._id}
+        id={game._id}
         platform={game.platform}
         gameName={game.gameName}
-        price={game.price}
-        imgURL={game.imgURL}
+        price={game.Price}
+        imgURL={game.Photos[0]}
         moveTo={"Wishlist"}
+        removeFromCartHandler={removeFromCartHandler}
       ></GameCard>
     );
   });

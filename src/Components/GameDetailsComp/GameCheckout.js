@@ -1,11 +1,24 @@
 import { Apple, Windows } from "react-bootstrap-icons";
 import classes from "./GameCheckout.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, getCartList } from "../../Store/Store";
+import { useEffect, useState } from "react";
 const GameCheckout = (props) => {
-  const game = props.game;
-  // const totalPrice = useSelector((state) => state.games.totalPrice);
+  const [gameExist, setGameExist] = useState(false);
+  const dispatch = useDispatch();
+  let cart = useSelector((state) => state.epic.cart);
+  let userId = useSelector((state) => state.epic.id);
+  let game = props.game;
+  // let gameExist = cart.find((cartGame) => cartGame._id === game._id);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ userId, gameId: game._id }));
+    setGameExist(true);
+  };
+
   return (
     <div className={classes.gamesSummary}>
-      <img src={game.Photos[0]} alt="" />
+      <img src={game.photos && game.Photos[0]} alt="" />
       <div className={classes.details}>
         <div className={classes.leftCol}>
           <h4>Refund Type</h4>
@@ -23,7 +36,14 @@ const GameCheckout = (props) => {
         </div>
       </div>
       <button>BUY NOW</button>
-      <button className="bg-transparent border-solid">ADD TO CART</button>
+      <button
+        className={`${
+          gameExist ? "bg-red-500" : "bg-transparent"
+        } border-solid `}
+        onClick={addToCartHandler}
+      >
+        {gameExist ? "REMOVE FROM CART" : "ADD TO CART"}
+      </button>
       <button className="bg-transparent border-solid">ADD TO WISHLIST</button>
     </div>
   );

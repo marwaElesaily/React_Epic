@@ -1,5 +1,6 @@
 import axios from "axios";
-import store from "./../Store/store";
+import store from "../Store/Store";
+import { useSelector } from "react-redux";
 
 const axiosInstance = axios.create({
   // https://api.rawg.io/api/games?key=37838b368bf34ab0bb5403e02b716a84

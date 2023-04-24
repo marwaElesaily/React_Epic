@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import "./Collections.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames } from "../../Store/store";
+import { getGames } from "../../Store/Store";
 // import changeGames from '../../Store/reducers/Games';
 
 const Collections = () => {

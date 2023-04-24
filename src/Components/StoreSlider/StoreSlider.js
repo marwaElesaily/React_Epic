@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./StoreSlider.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { getGames } from "../../Store/store";
+import { getGames } from "../../Store/Store";
 
 const StoreSlider = () => {
   // let gamesEpic = useSelector((state) => state.epic.games.slice(0, 5));

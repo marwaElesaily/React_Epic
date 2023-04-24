@@ -11,18 +11,18 @@ import { useParams } from "react-router-dom";
 // import changeMovies from './../../store/reducers/Movies';
 import "./TopSeller.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames } from "../../Store/store";
+import { getGames } from "../../Store/Store";
 
 const TopSeller = (sec) => {
   // var a = 'a';
   // console.log(props);
   let games = useSelector((state) => state.epic.games);
-  console.log(games);
+  // console.log(games);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(games);
+    // console.log(games);
 
     // use Redux Thunk
     dispatch(getGames());

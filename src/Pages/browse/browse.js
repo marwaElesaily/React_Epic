@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ProductList from "../../Components/productList/productList";
-import FilterSide from "../../Components/filterSide/filterSide";
+import ProductList from "../../Components/productList/ProductList";
+import FilterSide from "../../Components/filterSide/FilterSide";
 import { useDispatch, useSelector } from "react-redux";
 import "./Browse.css";
-import Accordion from "../../Components/accordion/accordion";
-import Spinner from "../../Components/spinner/spinner";
+import Accordion from "../../Components/accordion/Accordion";
+import Spinner from "../../Components/spinner/Spinner";
 import { useTranslation } from "react-i18next";
-import { getCategories, getGames } from "../../Store/store";
+import { Link } from "react-router-dom";
+import { getCategories, getGames } from "../../Store/Store";
 
 function Browse() {
   const [filterItem, setFilterItem] = useState("all");
