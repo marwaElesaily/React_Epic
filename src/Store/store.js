@@ -22,6 +22,8 @@ const epicState = {
   email: user ? user.email : null,
   displayName: user ? user.displayName : null,
   cart: [],
+  wishList: [],
+  totalPrice: 0,
 };
 
 export const createUser = createAsyncThunk(
@@ -60,7 +62,31 @@ export const addToCart = createAsyncThunk(
   "epic/addToCart",
   // callback function
   async ({ userId, gameId }) => {
-    const res = await axiosInstance.patch(`/User/${userId}/${gameId}`);
+    const res = await axiosInstance.patch(
+      `/User/addToCart/${userId}/${gameId}`
+    );
+    return res.data;
+  }
+);
+export const addToPurchase = createAsyncThunk(
+  //action type string
+  "epic/addToPurchase",
+  // callback function
+  async ({ userId, cart }) => {
+    const res = await axiosInstance.patch(`/User/addToPurchase/${userId}`, {
+      cart,
+    });
+    return res.data;
+  }
+);
+export const addToWishList = createAsyncThunk(
+  //action type string
+  "epic/addToWishList",
+  // callback function
+  async ({ userId, gameId }) => {
+    const res = await axiosInstance.patch(
+      `/User/addToWishList/${userId}/${gameId}`
+    );
     return res.data;
   }
 );
@@ -75,11 +101,31 @@ export const removeFromCart = createAsyncThunk(
     return res.data;
   }
 );
+export const removeFromWishList = createAsyncThunk(
+  //action type string
+  "epic/removeFromWishList",
+  // callback function
+  async ({ userId, gameId }) => {
+    const res = await axiosInstance.patch(
+      `/User/removeFromWishList/${userId}/${gameId}`
+    );
+    return res.data;
+  }
+);
 export const getCartList = createAsyncThunk(
   "epic/getCartList",
   async ({ id }) => {
     try {
       const res = await axiosInstance.get(`/User/getCart/${id}`);
+      return res.data;
+    } catch (err) {}
+  }
+);
+export const getWishList = createAsyncThunk(
+  "epic/getWishList",
+  async ({ id }) => {
+    try {
+      const res = await axiosInstance.get(`/User/getWishList/${id}`);
       return res.data;
     } catch (err) {}
   }
@@ -180,20 +226,59 @@ const epicSlice = createSlice({
       console.log(action.payload);
     });
     builder.addCase(addToCart.rejected, (state) => {});
+    /// addToWishList
+    builder.addCase(addToWishList.pending, (state) => {});
+    builder.addCase(addToWishList.fulfilled, (state, action) => {
+      console.log(action.payload);
+    });
+    builder.addCase(addToWishList.rejected, (state) => {});
 
     /// getCartList
-    builder.addCase(getCartList.pending, (state) => {});
+    builder.addCase(getCartList.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(getCartList.fulfilled, (state, action) => {
+      state.loader = false;
       state.cart = action.payload.cart;
+      let notFreeGames = state.cart.filter((games) => games.Price !== "free");
+      state.totalPrice = notFreeGames.reduce((acc, item) => {
+        return acc + Number(item.Price);
+      }, 0);
       console.log(action.payload);
     });
     builder.addCase(getCartList.rejected, (state) => {});
+
+    /// getWishList
+    builder.addCase(getWishList.pending, (state) => {
+      state.loader = true;
+    });
+    builder.addCase(getWishList.fulfilled, (state, action) => {
+      state.loader = false;
+      state.wishList = action.payload.wishList;
+      console.log(action.payload);
+    });
+    builder.addCase(getWishList.rejected, (state) => {});
     /// removeFromCart
-    builder.addCase(removeFromCart.pending, (state) => {});
+    builder.addCase(removeFromCart.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(removeFromCart.fulfilled, (state, action) => {
+      state.loader = false;
       console.log(action.payload);
     });
     builder.addCase(removeFromCart.rejected, (state) => {});
+    /// removeFromWishList
+    builder.addCase(removeFromWishList.pending, (state) => {});
+    builder.addCase(removeFromWishList.fulfilled, (state, action) => {
+      console.log(action.payload);
+    });
+    builder.addCase(removeFromWishList.rejected, (state) => {});
+    /// addToPurchase
+    builder.addCase(addToPurchase.pending, (state) => {});
+    builder.addCase(addToPurchase.fulfilled, (state, action) => {
+      console.log(action.payload);
+    });
+    builder.addCase(addToPurchase.rejected, (state) => {});
   },
 });
 

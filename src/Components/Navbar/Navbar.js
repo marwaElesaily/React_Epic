@@ -1,24 +1,21 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-
-
+import { useTranslation } from "react-i18next";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function Navbar() {
-
   const { t, i18n } = useTranslation();
 
   const navigation = [
-    { name: t('discover'), to: "/", current: false },
-    { name:  t('browse'), to: "/browse", current: false },
-    { name:  t('news'), to: "#", current: false },
-    { name:  t('wishlist'), to: "#", current: false },
-    { name: t('cart'), to: "/cart", current: false },
+    { name: t("discover"), to: "/", current: false },
+    { name: t("browse"), to: "/browse", current: false },
+    { name: t("news"), to: "#", current: false },
+    { name: t("wishlist"), to: "/wishList", current: false },
+    { name: t("cart"), to: "/cart", current: false },
   ];
   return (
     <Disclosure as="nav" style={{ backgroundColor: "rgb(18, 18, 18)" }}>
@@ -88,7 +85,7 @@ function Navbar() {
                           type="text"
                           id="simple-search"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder={t('search')}
+                          placeholder={t("search")}
                           required
                         />
                       </div>

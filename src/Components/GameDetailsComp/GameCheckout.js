@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartList } from "../../Store/Store";
 import { useEffect, useState } from "react";
 const GameCheckout = (props) => {
-  const [gameExist, setGameExist] = useState(false);
+  // const [gameExist, setGameExist] = useState(false);
   const dispatch = useDispatch();
   let cart = useSelector((state) => state.epic.cart);
   let userId = useSelector((state) => state.epic.id);
   let game = props.game;
-  // let gameExist = cart.find((cartGame) => cartGame._id === game._id);
+  let gameExist = cart.some((cartGame) => cartGame._id === game._id);
+  console.log(gameExist);
+  // useEffect(() => {}, [cart]);
 
   const addToCartHandler = () => {
     dispatch(addToCart({ userId, gameId: game._id }));
-    setGameExist(true);
   };
 
   return (

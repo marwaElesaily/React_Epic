@@ -15,8 +15,10 @@ import GameDetails from "./Pages/GameDetails/GameDetails";
 import WishList from "./Pages/WishList/WishList";
 import Browse from "./Pages/Browse/Browse";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import ProtectedRoutes from "./ProtectedRoutes";
 function App() {
+  const loggedIn = useSelector((state) => state.epic.loggedIn);
+  console.log(loggedIn);
   return (
     <div className="main">
       {/* <Browse></Browse> */}
@@ -25,16 +27,18 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Discover />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<WishList />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/gameDetails/:id" element={<GameDetails />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route path="/account" element={<Account />}>
-          <Route path="setting" element={<AccountSetting />} />
-          <Route path="password" element={<Password />} />
-          <Route path="transactions" element={<Transactions />} />
+        <Route element={<ProtectedRoutes loggedIn={loggedIn} />}>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="/account" element={<Account />}>
+            <Route path="setting" element={<AccountSetting />} />
+            <Route path="password" element={<Password />} />
+            <Route path="transactions" element={<Transactions />} />
+          </Route>
         </Route>
       </Routes>
       <Footer></Footer>
