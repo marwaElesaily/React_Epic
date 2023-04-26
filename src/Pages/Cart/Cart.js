@@ -8,6 +8,7 @@ import { epicActions, getCartList, removeFromCart } from "../../Store/Store";
 import { useCallback } from "react";
 import { useState } from "react";
 import Spinner from "../../Components/spinner/Spinner";
+import { Link } from "react-router-dom";
 const Cart = () => {
   const dispatch = useDispatch();
   const games = useSelector((state) => state.epic.cart);
@@ -50,6 +51,12 @@ const Cart = () => {
             {games.length === 0 ? (
               <h1 className={classes.cartEmpty}>
                 Your cart is empty
+                <Link
+                  to={"/browse"}
+                  className="text-lg underline transition-all hover:font-bold"
+                >
+                  Shop For Games Now
+                </Link>
                 <CartDashFill />
               </h1>
             ) : (

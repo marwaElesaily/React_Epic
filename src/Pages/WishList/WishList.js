@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
-import CartGamesSummary from "../../Components/CartGamesSummary/CartGamesSummary";
 import classes from "./WishList.module.css";
 import { CartDashFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +7,7 @@ import { useEffect } from "react";
 import { getWishList, removeFromWishList } from "../../Store/Store";
 import { useState } from "react";
 import Spinner from "../../Components/spinner/Spinner";
+import { Link } from "react-router-dom";
 
 const WishList = () => {
   const dispatch = useDispatch();
@@ -50,6 +50,12 @@ const WishList = () => {
             {games.length === 0 ? (
               <h1 className={classes.wishlistEmpty}>
                 Your Wishlist is empty
+                <Link
+                  to={"/browse"}
+                  className="text-lg transition-all underline hover:font-bold"
+                >
+                  Shop For Games Now
+                </Link>
                 <CartDashFill />
               </h1>
             ) : (
