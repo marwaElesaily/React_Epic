@@ -1,0 +1,12 @@
+.main {
+  align-items: center;
+  background-color: rgb(18, 18, 18);
+  /* width: 100%; */
+}
+body {
+  width: full;
+}
+/* .account {
+  height: 1000px;
+  color: black;
+} */

@@ -1,0 +1,37 @@
+/* * {
+  color: white;
+} */
+/* .cyborg-navbar {
+  min-height: 100px;
+} */
+
+#dwnl {
+  padding-top: 4px;
+}
+
+#dropdwnl {
+  margin-left: -19px;
+  /* padding-right: 1px; */
+}
+#dwnl {
+  height: 100%;
+  background-color: #0078f2;
+  padding: 22px 45px;
+  /* margin-right: -30px; */
+}
+
+#dropdwnl2 {
+  margin-left: -53px;
+}
+
+#btnhov #dropdwnl2 {
+  display: none;
+}
+
+#stlink {
+  align-self: center;
+}
+
+#stlink:hover {
+  border-bottom: 3px solid blue;
+}
