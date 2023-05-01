@@ -183,8 +183,17 @@ const Header = () => {
                 >
                   <div style={{ color: "#c2c2c2" }} className="flex ">
                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 bg-transparent pr-8 pl-2 text-sm items-center text-inherit hover:text-white">
-                      <i className="bi bi-person-fill block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 text-xl md:dark:bg-transparent pb-4  text-inherit hover:text-white"></i>
-                      {loggedIn ? displayName : t("signIn")}
+                      {loggedIn ? (
+                        <div className="flex justify-between items-center">
+                          <div className="flex justify-between items-center">
+                            <i className="bi bi-person-fill mx-1 block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 text-xl md:dark:bg-transparent pb-4  text-inherit hover:text-white"></i>
+                            {displayName}
+                          </div>
+                          <div className="w-2 h-2 mx-2 bg-green-600 rounded-full"></div>
+                        </div>
+                      ) : (
+                        <Link to={"/signIn"}>{t("signIn")}</Link>
+                      )}
                       {/* {t("signIn")} */}
                     </Menu.Button>
                   </div>
@@ -203,51 +212,53 @@ const Header = () => {
                       id="dropdwnl"
                       className="absolute z-10 mt-2 w-36 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                     >
-                      <div className="py-1">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/account"
-                              className={`${classNames(
-                                active ? " text-white" : "text-inherit",
-                                "block px-4 py-2 text-sm"
-                              )} text-center text-xs`}
-                            >
-                              {t("signIn-account")}
-                            </a>
-                          )}
-                        </Menu.Item>
-
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/wishlist"
-                              className={`${classNames(
-                                active ? " text-white" : "text-inherit",
-                                "block px-4 py-2 text-sm"
-                              )} text-center text-xs`}
-                            >
-                              {t("signIn-wishlist")}
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <form method="POST" action="#">
+                      {loggedIn && (
+                        <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
-                              <button
-                                onClick={signoutHandler}
-                                type="submit"
+                              <a
+                                href="/account/setting"
                                 className={`${classNames(
                                   active ? " text-white" : "text-inherit",
-                                  "block w-full px-4 py-2 text-left text-sm"
+                                  "block px-4 py-2 text-sm"
                                 )} text-center text-xs`}
                               >
-                                {t("signIn-signout")}
-                              </button>
+                                {t("signIn-account")}
+                              </a>
                             )}
                           </Menu.Item>
-                        </form>
-                      </div>
+
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="/wishlist"
+                                className={`${classNames(
+                                  active ? " text-white" : "text-inherit",
+                                  "block px-4 py-2 text-sm"
+                                )} text-center text-xs`}
+                              >
+                                {t("signIn-wishlist")}
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <form method="POST" action="#">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <button
+                                  onClick={signoutHandler}
+                                  type="submit"
+                                  className={`${classNames(
+                                    active ? " text-white" : "text-inherit",
+                                    "block w-full px-4 py-2 text-left text-sm"
+                                  )} text-center text-xs`}
+                                >
+                                  {t("signIn-signout")}
+                                </button>
+                              )}
+                            </Menu.Item>
+                          </form>
+                        </div>
+                      )}
                     </Menu.Items>
                   </Transition>
                 </Menu>
