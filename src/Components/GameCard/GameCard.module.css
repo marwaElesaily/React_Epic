@@ -12,6 +12,9 @@ body {
   width: 100%;
   border-radius: 10px;
 }
+.gameCard:hover {
+  background-color: rgb(78, 78, 78);
+}
 .rightCol {
   height: 100%;
   display: flex;

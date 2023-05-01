@@ -1,13 +1,15 @@
+import { useSelector } from "react-redux";
 import Input from "./AccountSettingComponents/Input";
 
 const Password = () => {
+  const userId = useSelector((state) => state.epic.id);
   return (
     <div>
       <h1 className="text-3xl">Password Setting</h1>
       <h1 className="pb-10">Manage your Account Details</h1>
       <h1 className="font-bold">Account information</h1>
       <h4 className="font-bold mb-5">
-        id : <span className="font-light">6566565656566</span>
+        id : <span className="font-light">{userId}</span>
       </h4>
       <div className="flex flex-row justify-between items-center px-40">
         <Input
