@@ -1,7 +1,12 @@
-import { PencilFill } from "react-bootstrap-icons";
+import { CheckCircleFill, PencilFill } from "react-bootstrap-icons";
 import Button from "./button";
+import { useState } from "react";
 
 const Input = (props) => {
+  const [inputEnabled, setInputEnabled] = useState(false);
+  function inputEnableHandler() {
+    setInputEnabled(!inputEnabled);
+  }
   return (
     <div className="flex flex-row justify-start items-end">
       <form>
@@ -12,7 +17,7 @@ const Input = (props) => {
           <input
             type={props.type}
             placeholder={props.placeholder}
-            disabled
+            disabled={!inputEnabled && true}
             className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
@@ -22,7 +27,12 @@ const Input = (props) => {
           />
         </label>
       </form>
-      <Button icon={<PencilFill />} id={props.id} />
+      <Button
+        inputEnableHandler={inputEnableHandler}
+        icon={inputEnabled ? <CheckCircleFill /> : <PencilFill />}
+        class={inputEnabled ? "bg-green-600" : "bg-primary"}
+        id={props.id}
+      />
     </div>
   );
 };

@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
 import "./Header.css";
 // import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
-import { Fragment } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 // import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -10,27 +9,39 @@ import { Disclosure } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import i18n, { changeLanguage } from "i18next";
 import { useDispatch, useSelector } from "react-redux";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { useEffect } from "react";
+import { epicActions } from "../../Store/Store";
 
 const Header = () => {
+  const navigate = useNavigate();
   const user = "SIGN IN";
-  const lang = useSelector((state) => state.language.Language);
-  console.log(lang);
+  const lang = useSelector((state) => state.epic.language);
+  const displayName = useSelector((state) => state.epic.displayName);
+  const loggedIn = useSelector((state) => state.epic.loggedIn);
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   let currentLanguage = i18n.language;
-  // console.log(currentLanguage);
-
   useEffect(() => {
     currentLanguage === "ar"
       ? (document.body.dir = "rtl")
       : (document.body.dir = "ltr");
+    console.log(displayName);
+    console.log("hello");
 
     // dispatch(changeLanguage(currentLanguage));
-  }, [currentLanguage]);
+  }, [loggedIn, displayName, currentLanguage]);
+
+  // console.log(currentLanguage);
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+
+  function signoutHandler(e) {
+    e.preventDefault();
+    dispatch(epicActions.signOut());
+    navigate("/signIn");
+  }
 
   return (
     <>
@@ -172,8 +183,18 @@ const Header = () => {
                 >
                   <div style={{ color: "#c2c2c2" }} className="flex ">
                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 bg-transparent pr-8 pl-2 text-sm items-center text-inherit hover:text-white">
-                      <i className="bi bi-person-fill block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 text-xl md:dark:bg-transparent pb-4  text-inherit hover:text-white"></i>
-                      {t("signIn")}
+                      {loggedIn ? (
+                        <div className="flex justify-between items-center">
+                          <div className="flex justify-between items-center">
+                            <i className="bi bi-person-fill mx-1 block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 text-xl md:dark:bg-transparent pb-4  text-inherit hover:text-white"></i>
+                            {displayName}
+                          </div>
+                          <div className="w-2 h-2 mx-2 bg-green-600 rounded-full"></div>
+                        </div>
+                      ) : (
+                        <Link to={"/signIn"}>{t("signIn")}</Link>
+                      )}
+                      {/* {t("signIn")} */}
                     </Menu.Button>
                   </div>
 
@@ -191,50 +212,53 @@ const Header = () => {
                       id="dropdwnl"
                       className="absolute z-10 mt-2 w-36 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                     >
-                      <div className="py-1">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/account"
-                              className={`${classNames(
-                                active ? " text-white" : "text-inherit",
-                                "block px-4 py-2 text-sm"
-                              )} text-center text-xs`}
-                            >
-                              {t("signIn-account")}
-                            </a>
-                          )}
-                        </Menu.Item>
-
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/wishlist"
-                              className={`${classNames(
-                                active ? " text-white" : "text-inherit",
-                                "block px-4 py-2 text-sm"
-                              )} text-center text-xs`}
-                            >
-                              {t("signIn-wishlist")}
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <form method="POST" action="#">
+                      {loggedIn && (
+                        <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
-                              <button
-                                type="submit"
+                              <a
+                                href="/account/setting"
                                 className={`${classNames(
                                   active ? " text-white" : "text-inherit",
-                                  "block w-full px-4 py-2 text-left text-sm"
+                                  "block px-4 py-2 text-sm"
                                 )} text-center text-xs`}
                               >
-                                {t("signIn-signout")}
-                              </button>
+                                {t("signIn-account")}
+                              </a>
                             )}
                           </Menu.Item>
-                        </form>
-                      </div>
+
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="/wishlist"
+                                className={`${classNames(
+                                  active ? " text-white" : "text-inherit",
+                                  "block px-4 py-2 text-sm"
+                                )} text-center text-xs`}
+                              >
+                                {t("signIn-wishlist")}
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <form method="POST" action="#">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <button
+                                  onClick={signoutHandler}
+                                  type="submit"
+                                  className={`${classNames(
+                                    active ? " text-white" : "text-inherit",
+                                    "block w-full px-4 py-2 text-left text-sm"
+                                  )} text-center text-xs`}
+                                >
+                                  {t("signIn-signout")}
+                                </button>
+                              )}
+                            </Menu.Item>
+                          </form>
+                        </div>
+                      )}
                     </Menu.Items>
                   </Transition>
                 </Menu>

@@ -1,17 +1,22 @@
-import { useTranslation } from 'react-i18next';
-import FilterByGenres from '../filterBy/filterByGenre'
-import FilterByPlatform from '../filterBy/filterByPlatform'
-import FilterByPrice from '../filterBy/filterByPrice'
+import { useTranslation } from "react-i18next";
+import FilterByGenres from "../filterBy/FilterByGenre";
+import FilterByPlatform from "../filterBy/FilterByPlatform";
+import FilterByPrice from "../filterBy/FilterByPrice";
 
-export default function Accordion({ filterItem, setFilterItem, filterItemGenre, setFilterItemGenre, filterItemPlatform, setFilterItemPlatform }) {
-
+export default function Accordion({
+  filterItem,
+  setFilterItem,
+  filterItemGenre,
+  setFilterItemGenre,
+  filterItemPlatform,
+  setFilterItemPlatform,
+}) {
   const { t, i18n } = useTranslation();
 
   return (
     <>
       <div id="accordionExample">
-        <div
-          className=" ">
+        <div className=" ">
           <h2 className="mb-0" id="headingOne">
             <button
               className="group relative flex w-full items-center  px-5 py-4 text-left text-xs text-zinc-400 "
@@ -19,21 +24,23 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
               data-te-collapse-init
               data-te-target="#collapseOne"
               aria-expanded="true"
-              aria-controls="collapseOne">
-              {t('accordion-price')}
-              <span
-                className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+              aria-controls="collapseOne"
+            >
+              {t("accordion-price")}
+              <span className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  className="h-6 w-6">
+                  className="h-6 w-6"
+                >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
                 </svg>
               </span>
             </button>
@@ -44,13 +51,16 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
             data-te-collapse-item
             data-te-collapse-show
             aria-labelledby="headingOne"
-            data-te-parent="#accordionExample">
-           <FilterByPrice filterItem={ filterItem} setFilterItem={setFilterItem}/>
+            data-te-parent="#accordionExample"
+          >
+            <FilterByPrice
+              filterItem={filterItem}
+              setFilterItem={setFilterItem}
+            />
           </div>
         </div>
-        <div className='w-full h-px bg-zinc-400'></div>
-        <div
-          className="">
+        <div className="w-full h-px bg-zinc-400"></div>
+        <div className="">
           <h2 className="mb-0" id="headingTwo">
             <button
               className="group relative flex w-full items-center  px-5 py-4 text-left text-xs text-zinc-400 focus:outline-none"
@@ -59,21 +69,23 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
               data-te-collapse-collapsed
               data-te-target="#collapseTwo"
               aria-expanded="false"
-              aria-controls="collapseTwo">
-              {t('accordion-genre')}
-              <span
-                className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+              aria-controls="collapseTwo"
+            >
+              {t("accordion-genre")}
+              <span className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  className="h-6 w-6">
+                  className="h-6 w-6"
+                >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
                 </svg>
               </span>
             </button>
@@ -83,14 +95,16 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
             className="!visible hidden"
             data-te-collapse-item
             aria-labelledby="headingTwo"
-            data-te-parent="#accordionExample">
-            <FilterByGenres filterItemGenre={filterItemGenre} setFilterItemGenre={setFilterItemGenre} />
-
+            data-te-parent="#accordionExample"
+          >
+            <FilterByGenres
+              filterItemGenre={filterItemGenre}
+              setFilterItemGenre={setFilterItemGenre}
+            />
           </div>
         </div>
-        <div className='w-full h-px bg-zinc-400'></div>
-        <div
-          className="">
+        <div className="w-full h-px bg-zinc-400"></div>
+        <div className="">
           <h2 className="accordion-header mb-0" id="headingThree">
             <button
               className="group relative flex w-full items-center px-5 py-4 text-left text-xs text-zinc-400"
@@ -99,21 +113,23 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
               data-te-collapse-collapsed
               data-te-target="#collapseThree"
               aria-expanded="false"
-              aria-controls="collapseThree">
-              {t('accordion-platform')}
-              <span
-                className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+              aria-controls="collapseThree"
+            >
+              {t("accordion-platform")}
+              <span className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  className="h-6 w-6">
+                  className="h-6 w-6"
+                >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
                 </svg>
               </span>
             </button>
@@ -123,15 +139,15 @@ export default function Accordion({ filterItem, setFilterItem, filterItemGenre, 
             className="!visible hidden"
             data-te-collapse-item
             aria-labelledby="headingThree"
-            data-te-parent="#accordionExample">
-            <FilterByPlatform filterItemPlatform={filterItemPlatform} setFilterItemPlatform={setFilterItemPlatform} />
+            data-te-parent="#accordionExample"
+          >
+            <FilterByPlatform
+              filterItemPlatform={filterItemPlatform}
+              setFilterItemPlatform={setFilterItemPlatform}
+            />
           </div>
         </div>
-       
       </div>
-
     </>
-
-
-  )
+  );
 }

@@ -1,31 +1,29 @@
 import React, { useState, useEffect } from "react";
-import ProductList from "../../Components/productList/productList";
-import FilterSide from "../../Components/filterSide/filterSide";
+import ProductList from "../../Components/productList/ProductList";
+import FilterSide from "../../Components/filterSide/FilterSide";
 import { useDispatch, useSelector } from "react-redux";
-import GamesRedThunk from "../../Store/actions/GamesRedThunk";
 import "./Browse.css";
-import Accordion from "../../Components/accordion/accordion";
-import Spinner from "../../Components/spinner/spinner";
-import changeCategories from "../../Store/actions/categories";
+import Accordion from "../../Components/accordion/Accordion";
+import Spinner from "../../Components/spinner/Spinner";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { getCategories, getGames } from "../../Store/Store";
 
 function Browse() {
-  let MyGames = useSelector((state) => state.changeGames);
-  MyGames = MyGames.Games;
-  const loader = useSelector((state) => state.loader.loader);
+  const [filterItem, setFilterItem] = useState("all");
+  const [filterItemGenre, setFilterItemGenre] = useState("all");
+  const [filterItemPlatform, setFilterItemPlatform] = useState("all");
+  let MyGames = useSelector((state) => state.epic.games);
+  const loader = useSelector((state) => state.epic.loader);
 
-  const categories = useSelector((state) => state.categories.categories);
+  const categories = useSelector((state) => state.epic.categories);
   const { t, i18n } = useTranslation();
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(GamesRedThunk());
-    dispatch(changeCategories());
-  }, []);
-
-  const [filterItem, setFilterItem] = useState("all");
-  const [filterItemGenre, setFilterItemGenre] = useState("all");
-  const [filterItemPlatform, setFilterItemPlatform] = useState("all");
+    dispatch(getGames());
+    dispatch(getCategories());
+  }, [dispatch]);
 
   const filteredProductsByPrice = MyGames.filter((product) => {
     if (filterItem === "free") return product.Price == "free";
