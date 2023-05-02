@@ -1,6 +1,6 @@
-import "./filterSide.css";
+import "./FilterSide.css";
 import { useTranslation } from "react-i18next";
-import Accordion from "../accordion/Accordion";
+import Accordion from "../Accordion/accordion";
 
 export default function FilterSide({
   filterItem,

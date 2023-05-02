@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./gamesOnSale.css";
+import "./GamesOnSale.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { getGames } from "../../Store/Store";
+import { getGames } from "../../Store/store";
 
 export function GamesOnSale() {
   let MyGames = useSelector((state) => state.epic.games);

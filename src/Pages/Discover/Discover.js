@@ -3,16 +3,16 @@ import React, { useState } from "react";
 // import { useEffect } from 'react';
 // import axios from 'axios'
 // import axiosInstance from './../../axiosConfig/instanc';
-import TopSeller from "../../Components/TopSeller/TopSeller";
+import TopSeller from "../../Components/TopSeller/topSeller";
 import StoreSlider from "../../Components/StoreSlider/StoreSlider";
 import "./Discover.css";
-import FreeGames from "../../Components/freeGames/FreeGames";
-import { GamesOnSale } from "../../Components/gamesOnSale/GamesOnSale";
 import { Collection } from "react-bootstrap-icons";
 import Collections from "../../Components/Collections/Collections";
 import Catalog from "../../Components/Catalog/Catalog";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
+import { GamesOnSale } from "../../Components/GamesOnSale/GamesOnSale";
+import FreeGames from "../../Components/FreeGames/FreeGames";
 
 const Discover = () => {
   // const [search, setsearch] = useState("");

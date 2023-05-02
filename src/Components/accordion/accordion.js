@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import FilterByGenres from "../filterBy/FilterByGenre";
-import FilterByPlatform from "../filterBy/FilterByPlatform";
-import FilterByPrice from "../filterBy/FilterByPrice";
+import FilterByPrice from "../FilterBy/FilterByPrice";
+import FilterByPlatform from "../FilterBy/filterByPlatform";
+import FilterByGenres from "../FilterBy/filterByGenre";
 
 export default function Accordion({
   filterItem,

@@ -1,8 +1,12 @@
 import classes from "./CartGamesSummary.module.css";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useDispatch, useSelector } from "react-redux";
-import { addToPurchase } from "../../Store/Store";
+import { addToPurchase } from "../../Store/store";
+import { useTranslation } from "react-i18next";
+
 const CartGamesSummary = (props) => {
+  const { t, i18n } = useTranslation();
+
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.epic.cart);
   const userId = useSelector((state) => state.epic.id);
@@ -11,7 +15,7 @@ const CartGamesSummary = (props) => {
 
   return (
     <div className={classes.gamesSummary}>
-      <h2>Games and Apps Summary</h2>
+      <h2>{t("GamesandAppsSummary")}</h2>
       <div className={classes.details}>
         <div className={classes.leftCol}>
           <h4>Total Games</h4>

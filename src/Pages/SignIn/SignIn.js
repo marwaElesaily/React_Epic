@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../Store/Store";
+import { login } from "../../Store/store";
 import { useFormik } from "formik";
 const validate = (values) => {
   const errors = {};

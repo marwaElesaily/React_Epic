@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import FooterLink from "../FooterLink/FooterLink";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+
+  const { t, i18n } = useTranslation();
+  
+
   return (
     <footer className="footer mr-20 ml-20">
       <div className="container mx-auto logo-col text-start">
@@ -43,52 +48,52 @@ const Footer = () => {
         </div>
       </div>
       <h5 className="container text-secondary text-start fs-3 my-5 text-zinc-400 pt-3 pb-3">
-        Resources
+        {t('footer-resources')}
       </h5>
       <div className="container grid grid--footer text-start">
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Support-A-Creator" />
-            <FooterLink title="Distribute on Epic Games" />
-            <FooterLink title="Careers" />
-            <FooterLink title="Company" />
+            <FooterLink title={t('footer-supportCreator')} />
+            <FooterLink title={t('footer-DistributeEpicGames')} />
+            <FooterLink title={t('footer-Careers')}/>
+            <FooterLink title={t('footer-Company')}/>
           </ul>
         </nav>
 
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Fan Art Policy" />
-            <FooterLink title="UX Research" />
-            <FooterLink title="Store EULA" />
+            <FooterLink title={t('footer-FanArtPolicy')}/>
+            <FooterLink title={t('footer-UXResearch')} />
+            <FooterLink title={t('footer-StoreEULA')} />
           </ul>
         </nav>
 
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Online Services" />
-            <FooterLink title="Community Rules" />
-            <FooterLink title="Epic Newsroom" />
+            <FooterLink title={t('footer-OnlineServices')} />
+            <FooterLink title={t('footer-CommunityRules')} />
+            <FooterLink title={t('footer-EpicNewsroom')} />
           </ul>
         </nav>
       </div>
 
       <h5 className="container text-secondary text-start fs-3  my-5 text-zinc-400 pt-3 pb-3">
-        Made By Epic Games
+      {t('footer-MadeByEpicGames')}
       </h5>
       <div className="container grid grid--footer text-start">
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Battle Breakers" />
-            <FooterLink title="Fortnite" />
-            <FooterLink title="Infinity Blades" />
+            <FooterLink title={t('footer-BattleBreakers')} />
+            <FooterLink title={t('footer-Fortnite')} />
+            <FooterLink title={t('footer-InfinityBlades')} />
           </ul>
         </nav>
 
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Robo Recall" />
-            <FooterLink title="Shadow Complex" />
-            <FooterLink title="Unreal Tournament" />
+            <FooterLink title={t('footer-RoboRecall')}/>
+            <FooterLink title={t('footer-ShadowComplex')} />
+            <FooterLink title={t('footer-UnrealTournament')}/>
           </ul>
         </nav>
       </div>
@@ -96,28 +101,23 @@ const Footer = () => {
       <div className="container divider pt-5 mb-5"></div>
 
       <p className="container copyright grid text-start">
-        Copyright &copy;2023, Epic Games, Inc. All rights reserved. Epic, Epic
-        Games, the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal
-        Engine, the Unreal Engine logo, Unreal Tournament, and the Unreal
-        Tournament logo are trademarks or registered trademarks of Epic Games,
-        Inc. in the United States of America and elsewhere. Other brands or
-        product names are the trademarks of their respective owners.
+        Copyright &copy;2023, Epic Games, Inc. {t('footer-copyRight')}
       </p>
 
       <div className="container grid grid--footer-sm-spacing mt-5">
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Terms of Service" />
+            <FooterLink title={t('footer-TermsofService')} />
           </ul>
         </nav>
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Privacy Policy" />
+            <FooterLink title={t('footer-PrivacyPolicy')} />
           </ul>
         </nav>
         <nav className="nav-col">
           <ul className="footer-nav">
-            <FooterLink title="Store Refund Policy" />
+            <FooterLink title={t('footer-StoreRefundPolicy')} />
           </ul>
         </nav>
       </div>

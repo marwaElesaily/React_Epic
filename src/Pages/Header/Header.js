@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import i18n, { changeLanguage } from "i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { epicActions } from "../../Store/Store";
+import { epicActions } from "../../Store/store";
 
 const Header = () => {
   const navigate = useNavigate();

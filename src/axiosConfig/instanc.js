@@ -1,5 +1,5 @@
 import axios from "axios";
-import store from "../Store/Store";
+import store from "../Store/store";
 import { useSelector } from "react-redux";
 
 const axiosInstance = axios.create({

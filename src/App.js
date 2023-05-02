@@ -13,7 +13,7 @@ import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import GameDetails from "./Pages/GameDetails/GameDetails";
 import WishList from "./Pages/WishList/WishList";
-import Browse from "./Pages/Browse/Browse";
+import Browse from "./Pages/Browse/browse";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./ProtectedRoutes";
 function App() {
@@ -21,9 +21,9 @@ function App() {
   console.log(loggedIn);
   return (
     <div className="main">
+      <Header></Header>
       {/* <Browse></Browse> */}
       {/* <GameDetails /> */}
-      <Header></Header>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Discover />} />

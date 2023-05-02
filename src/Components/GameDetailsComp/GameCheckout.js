@@ -1,7 +1,7 @@
 import { Apple, Windows } from "react-bootstrap-icons";
 import classes from "./GameCheckout.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, getCartList } from "../../Store/Store";
+import { addToCart, getCartList } from "../../Store/store";
 import { useEffect, useState } from "react";
 const GameCheckout = (props) => {
   // const [gameExist, setGameExist] = useState(false);

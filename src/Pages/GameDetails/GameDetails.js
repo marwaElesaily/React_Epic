@@ -4,8 +4,8 @@ import GameCheckout from "../../Components/GameDetailsComp/GameCheckout";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
-import { getCartList, getGameById } from "../../Store/Store";
-import Spinner from "../../Components/spinner/Spinner";
+import { getCartList, getGameById } from "../../Store/store";
+import Spinner from "../../Components/Spinner/spinner";
 
 const GameDetails = () => {
   let { id } = useParams();

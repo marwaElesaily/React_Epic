@@ -2,14 +2,18 @@ import { Fragment } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
 import classes from "./WishList.module.css";
 import { CartDashFill } from "react-bootstrap-icons";
+import { useTranslation } from "react-i18next";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getWishList, removeFromWishList } from "../../Store/Store";
+import { getWishList, removeFromWishList } from "../../Store/store";
 import { useState } from "react";
-import Spinner from "../../Components/spinner/Spinner";
 import { Link } from "react-router-dom";
+import Spinner from "../../Components/Spinner/spinner";
 
 const WishList = () => {
+  const { t, i18n } = useTranslation();
+
   const dispatch = useDispatch();
   let id = useSelector((state) => state.epic.id);
   let loader = useSelector((state) => state.epic.loader);
@@ -32,7 +36,7 @@ const WishList = () => {
         gameName={game.gameName}
         price={game.Price}
         imgURL={game.Photos[0]}
-        moveTo={"Cart"}
+        moveTo={t("cart")}
         removeFromCartorWishListHandler={() =>
           removeFromWishListHandler(game._id)
         }
@@ -41,7 +45,7 @@ const WishList = () => {
   });
   return (
     <Fragment>
-      <h1 className={classes.sectionName}>My WishList</h1>
+      <h1 className={classes.sectionName}>t('MyWishList')</h1>
       {loader ? (
         <Spinner />
       ) : (
@@ -54,7 +58,7 @@ const WishList = () => {
                   to={"/browse"}
                   className="text-lg transition-all underline hover:font-bold"
                 >
-                  Shop For Games Now
+                  {t("wishlistEmpty")}
                 </Link>
                 <CartDashFill />
               </h1>

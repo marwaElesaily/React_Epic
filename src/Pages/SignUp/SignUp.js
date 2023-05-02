@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { createUser } from "../../Store/Store";
+import { createUser } from "../../Store/store";
 import { useFormik } from "formik";
 
 const validate = (values) => {

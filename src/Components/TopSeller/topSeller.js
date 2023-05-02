@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 // import changeMovies from './../../store/reducers/Movies';
 import "./TopSeller.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames } from "../../Store/Store";
+import { getGames } from "../../Store/store";
 
 const TopSeller = (sec) => {
   // var a = 'a';
