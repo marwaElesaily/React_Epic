@@ -1,32 +1,21 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-
-// const navigation = [
-//   { name: "Discover", to: "/", current: false },
-//   { name: "Browse", to: "/browse", current: false },
-//   { name: "News", to: "#", current: false },
-//   { name: "Wishlist", to: "/wishlist", current: false },
-//   { name: "Cart", to: "/cart", current: false },
-//   { name: "Account", to: "/account/setting", current: false },
-// ];
+import { useTranslation } from "react-i18next";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function Navbar() {
-
   const { t, i18n } = useTranslation();
 
   const navigation = [
-    { name: t('discover'), to: "/", current: false },
-    { name:  t('browse'), to: "/browse", current: false },
-    { name:  t('news'), to: "#", current: false },
-    { name: t('wishlist'), to: "/wishlist", current: false },
-    { name: t('cart'), to: "/cart", current: false },
-    { name: t('account'), to: "/account/setting", current: false },
+    { name: t("discover"), to: "/", current: false },
+    { name: t("browse"), to: "/browse", current: false },
+    { name: t("news"), to: "#", current: false },
+    { name: t("wishlist"), to: "/wishList", current: false },
+    { name: t("cart"), to: "/account/setting", current: false },
   ];
 
   return (
@@ -76,7 +65,7 @@ function Navbar() {
                 <div className="flex flex-shrink-0 items-center"></div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    <form class="flex items-center">
+                    <form class="flex items-center flex-col">
                       <div class="relative">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                           <svg
@@ -96,10 +85,10 @@ function Navbar() {
                         <input
                           type="text"
                           id="simple-search"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Search"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                          placeholder={t("Search")}
                           required
-                        />
+                        ></input>
                       </div>
                     </form>
 
@@ -152,19 +141,10 @@ function Navbar() {
 
 export default Navbar;
 
-
-
-
-
-
-
-
 // import { Disclosure } from "@headlessui/react";
 // import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 // import { Link } from "react-router-dom";
 // import { useTranslation } from 'react-i18next';
-
-
 
 // function classNames(...classes) {
 //   return classes.filter(Boolean).join(" ");

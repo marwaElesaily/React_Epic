@@ -1,11 +1,10 @@
 import React from "react";
-import styles from "./freeGames.module.css";
-import { useTranslation } from 'react-i18next';
+import styles from "./FreeGames.module.css";
+import { useTranslation } from "react-i18next";
 
 const FreeGames = () => {
-
-    const { t, i18n } = useTranslation();
-    const lang = i18n.language
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
 
   return (
     <div className="container px-4">
@@ -20,12 +19,12 @@ const FreeGames = () => {
                 </g>
               </svg>
               <p className={`${styles.freeGTXT} text-center pl-12 -mt-5 ml-2`}>
-              {t('freeGames')}
+                {t("freeGames")}
               </p>
             </p>
           </div>
           <a href="#!" className={styles.btnOutline}>
-          {t('viewMore')}
+            {t("viewMore")}
           </a>
         </div>
         <div className={styles.flex}>
@@ -40,7 +39,7 @@ const FreeGames = () => {
               <h4 className="flextext-bg">
                 Idle Champions of the Forgotten Realms
               </h4>
-              {t('freeGames-FreeNow')}
+              {t("freeGames-FreeNow")}
             </div>
           </a>
           <a href="#!" className={styles.game}>
@@ -54,40 +53,40 @@ const FreeGames = () => {
               <h4 className="flextext-bg">
                 Idle Champions of the Forgotten Realms
               </h4>
-              {t('freeGames-FreeNow')}
+              {t("freeGames-FreeNow")}
             </div>
           </a>
         </div>
         <div className={styles.flex}>
-        <a href="#!" className={`${styles.game} ${styles.freenow}`}>
-          <div className={styles.gameimg}>
-            <img
-              src="https://cdn1.epicgames.com/salesEvent/salesEvent/Landscape%20-%20Apr%2029_2560x1440-557c79e2df74001427d21f75da99e87e?h=480&amp;resize=1&amp;w=854"
-              alt="game"
-            />
-          </div>
-          <div className={styles.flextext}>
-            <h4 className="flextext-bg">
-              Idle Champions of the Forgotten Realms
-            </h4>
-            {t('freeGames-FreeNow')}
-          </div>
-        </a>
-        <a href="#!" className={styles.game}>
-          <div className={styles.gameimg}>
-            <img
-              src="https://cdn1.epicgames.com/salesEvent/salesEvent/Landscape%20-%20Apr%2029_2560x1440-557c79e2df74001427d21f75da99e87e?h=480&amp;resize=1&amp;w=854"
-              alt="game"
-            />
-          </div>
-          <div className={styles.flextext}>
-            <h4 className="flextext-bg">
-              Idle Champions of the Forgotten Realms
-            </h4>
-            {t('freeGames-FreeNow')}
-          </div>
-        </a>
-      </div>
+          <a href="#!" className={`${styles.game} ${styles.freenow}`}>
+            <div className={styles.gameimg}>
+              <img
+                src="https://cdn1.epicgames.com/salesEvent/salesEvent/Landscape%20-%20Apr%2029_2560x1440-557c79e2df74001427d21f75da99e87e?h=480&amp;resize=1&amp;w=854"
+                alt="game"
+              />
+            </div>
+            <div className={styles.flextext}>
+              <h4 className="flextext-bg">
+                Idle Champions of the Forgotten Realms
+              </h4>
+              {t("freeGames-FreeNow")}
+            </div>
+          </a>
+          <a href="#!" className={styles.game}>
+            <div className={styles.gameimg}>
+              <img
+                src="https://cdn1.epicgames.com/salesEvent/salesEvent/Landscape%20-%20Apr%2029_2560x1440-557c79e2df74001427d21f75da99e87e?h=480&amp;resize=1&amp;w=854"
+                alt="game"
+              />
+            </div>
+            <div className={styles.flextext}>
+              <h4 className="flextext-bg">
+                Idle Champions of the Forgotten Realms
+              </h4>
+              {t("freeGames-FreeNow")}
+            </div>
+          </a>
+        </div>
       </div>
       {/* <div className={styles.flex}>
         <a href="#!" className={`${styles.game} ${styles.freenow}`}>
@@ -125,15 +124,11 @@ const FreeGames = () => {
 
 export default FreeGames;
 
-
-
 // import React from 'react'
 // import styles from './freeGames.module.css'
 
-
 // const FreeGames = () => {
 
-    
 //     return (
 //         <div className="container px-4">
 //         <div className={styles.freegames}>
