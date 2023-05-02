@@ -10,7 +10,7 @@ function classNames(...classes) {
 function Navbar() {
   const { t, i18n } = useTranslation();
 
-  const navigation = [
+ const navigation = [
     { name: t("discover"), to: "/", current: false },
     { name: t("browse"), to: "/browse", current: false },
     { name: t("news"), to: "#", current: false },
