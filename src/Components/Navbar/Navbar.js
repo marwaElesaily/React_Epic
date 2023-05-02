@@ -10,12 +10,13 @@ function classNames(...classes) {
 function Navbar() {
   const { t, i18n } = useTranslation();
 
-  const navigation = [
+ const navigation = [
     { name: t("discover"), to: "/", current: false },
     { name: t("browse"), to: "/browse", current: false },
     { name: t("news"), to: "#", current: false },
     { name: t("wishlist"), to: "/wishList", current: false },
-    { name: t("cart"), to: "/account/setting", current: false },
+    { name: t("cart"), to: "/cart", current: false },
+    { name: t("account"), to: "/account/setting", current: false },
   ];
 
   return (
