@@ -111,6 +111,15 @@ export const removeFromCart = createAsyncThunk(
     return res.data;
   }
 );
+export const removeAllFromCart = createAsyncThunk(
+  //action type string
+  "epic/removeAllFromCart",
+  // callback function
+  async ({ userId }) => {
+    const res = await axiosInstance.patch(`/User/removeAllFromCart/${userId}`);
+    return res.data;
+  }
+);
 export const removeFromWishList = createAsyncThunk(
   //action type string
   "epic/removeFromWishList",
@@ -275,6 +284,12 @@ const epicSlice = createSlice({
       console.log(action.payload);
     });
     builder.addCase(removeFromCart.rejected, (state) => {});
+    /// removeAllFromCart
+    builder.addCase(removeAllFromCart.pending, (state) => {});
+    builder.addCase(removeAllFromCart.fulfilled, (state, action) => {
+      state.cart = action.payload.user.cart;
+    });
+    builder.addCase(removeAllFromCart.rejected, (state) => {});
     /// removeFromWishList
     builder.addCase(removeFromWishList.pending, (state) => {});
     builder.addCase(removeFromWishList.fulfilled, (state, action) => {

@@ -1,7 +1,7 @@
 import classes from "./CartGamesSummary.module.css";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useDispatch, useSelector } from "react-redux";
-import { addToPurchase } from "../../Store/store";
+import { addToPurchase, removeAllFromCart } from "../../Store/store";
 import { useTranslation } from "react-i18next";
 import PayPalButton from "../PayPalButton/PayPalButton";
 
@@ -17,6 +17,7 @@ const CartGamesSummary = (props) => {
 
   function gamesSummaryPayPalCallBack(details) {
     dispatch(addToPurchase({ userId, cart }));
+    dispatch(removeAllFromCart({ userId }));
     alert("Transaction completed, Thanks");
   }
 
