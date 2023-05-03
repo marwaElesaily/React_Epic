@@ -1,0 +1,19 @@
+.plus {
+  color: white;
+  border-radius: 30px;
+  border: 2px solid white;
+  width: 20px;
+  background-color: black;
+  font-weight: 700;
+  margin-left: 60px;
+  margin-bottom: 40px;
+  position: absolute;
+  text-align: center;
+}
+
+.cont {
+  /* height: 170px; */
+  font-size: smaller;
+  /* width: max-content; */
+  width: 100%;
+}
