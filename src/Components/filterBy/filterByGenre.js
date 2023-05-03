@@ -22,7 +22,7 @@ export default function FilterByGenres({
             id="action"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[1].name:categories[1].name_ar}
+            {/* {lang==='en'?categories[1].name:categories[1].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -32,7 +32,7 @@ export default function FilterByGenres({
             id="shooter"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[0].name:categories[0].name_ar}
+            {/* {lang==='en'?categories[0].name:categories[0].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -42,7 +42,7 @@ export default function FilterByGenres({
             id="Open World"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[2].name:categories[2].name_ar}
+            {/* {lang==='en'?categories[2].name:categories[2].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -52,7 +52,7 @@ export default function FilterByGenres({
             id="RPG"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[3].name:categories[3].name_ar}
+            {/* {lang==='en'?categories[3].name:categories[3].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -62,7 +62,7 @@ export default function FilterByGenres({
             id="Horror"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[4].name:categories[4].name_ar}
+            {/* {lang==='en'?categories[4].name:categories[4].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -72,7 +72,7 @@ export default function FilterByGenres({
             id="Adventure"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[5].name:categories[5].name_ar}
+            {/* {lang==='en'?categories[5].name:categories[5].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -82,7 +82,7 @@ export default function FilterByGenres({
             id="Survival"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[6].name:categories[6].name_ar}
+            {/* {lang==='en'?categories[6].name:categories[6].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -92,7 +92,7 @@ export default function FilterByGenres({
             id="Casual"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[7].name:categories[7].name_ar}
+            {/* {lang==='en'?categories[7].name:categories[7].name_ar} */}
           </a>
         </div>
         <div className="h-10 flex items-center">
@@ -102,7 +102,7 @@ export default function FilterByGenres({
             id="Simulation"
             onClick={onClickHandler}
           >
-            {lang==='en'?categories[8].name:categories[8].name_ar}
+            {/* {lang==='en'?categories[8].name:categories[8].name_ar} */}
           </a>
         </div>
       </div>
