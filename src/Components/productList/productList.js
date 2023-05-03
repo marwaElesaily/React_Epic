@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProductList.css";
+import "./productList.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 function ProductList({ products }) {
@@ -44,10 +44,10 @@ function ProductList({ products }) {
       ) : (
         <div className="flex flex-col justify-center items-center my-32">
           <p className="xl:text-6xl lg:text-6xl md:text-6xl mb-6 mobileMediaP1">
-            No results found
+           {t("NoResultsFound")}
           </p>
           <p className="xl:text-3xl lg:text-xl md:text-lg text-center mobileMediaP2">
-            Unfortunately I could not find any results matching your search.
+          {t("resultsMatchingSearch")}
           </p>
         </div>
       )}

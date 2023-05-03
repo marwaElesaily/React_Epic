@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { getWishList, removeFromWishList } from "../../Store/store";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Spinner from "../../Components/Spinner/spinner";
+import Spinner from "../../Components/spinner/spinner";
 
 const WishList = () => {
   const { t, i18n } = useTranslation();
@@ -45,7 +45,7 @@ const WishList = () => {
   });
   return (
     <Fragment>
-      <h1 className={classes.sectionName}>t('MyWishList')</h1>
+      <h1 className={classes.sectionName}>{t('MyWishList')}</h1>
       {loader ? (
         <Spinner />
       ) : (
@@ -53,12 +53,12 @@ const WishList = () => {
           <div className={classes.games}>
             {games.length === 0 ? (
               <h1 className={classes.wishlistEmpty}>
-                Your Wishlist is empty
+                {t("wishlistEmpty")}
                 <Link
                   to={"/browse"}
                   className="text-lg transition-all underline hover:font-bold"
                 >
-                  {t("wishlistEmpty")}
+                  {t("browseNow")}
                 </Link>
                 <CartDashFill />
               </h1>

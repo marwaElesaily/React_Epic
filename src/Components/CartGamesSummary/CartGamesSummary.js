@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 const CartGamesSummary = (props) => {
   const { t, i18n } = useTranslation();
-
+  const lang = i18n.language;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.epic.cart);
   const userId = useSelector((state) => state.epic.id);
@@ -18,12 +18,20 @@ const CartGamesSummary = (props) => {
       <h2>{t("GamesandAppsSummary")}</h2>
       <div className={classes.details}>
         <div className={classes.leftCol}>
-          <h4>Total Games</h4>
-          <h4>Total Price</h4>
+          <h4>{t("TotalGames")}</h4>
+          <h4>{t("TotalPrice")}</h4>
         </div>
         <div className={classes.rightCol}>
-          <h4>{totalGames}</h4>
-          <h4 className="font-bold">${totalPrice}</h4>
+          <h4>{lang === "en"
+            ? `${totalGames}`
+            : `${new Intl.NumberFormat("ar-EG").format(
+              totalGames
+            )}`}</h4>
+          <h4 className="font-bold">{lang === "en"
+            ? `$${totalPrice}`
+            : `${new Intl.NumberFormat("ar-EG").format(
+              totalPrice
+            )} US$`}</h4>
         </div>
         {/* <div className={classes.line}></div> */}
       </div>

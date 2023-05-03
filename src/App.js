@@ -13,7 +13,7 @@ import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 import GameDetails from "./Pages/GameDetails/GameDetails";
 import WishList from "./Pages/WishList/WishList";
-import Browse from "./Pages/Browse/browse";
+import Browse from "./Pages/browse/browse";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./ProtectedRoutes";
 function App() {

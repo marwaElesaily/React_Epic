@@ -11,8 +11,8 @@ import Collections from "../../Components/Collections/Collections";
 import Catalog from "../../Components/Catalog/Catalog";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
-import { GamesOnSale } from "../../Components/GamesOnSale/GamesOnSale";
-import FreeGames from "../../Components/FreeGames/FreeGames";
+import { GamesOnSale } from "../../Components/gamesOnSale/gamesOnSale";
+import FreeGames from "../../Components/freeGames/freeGames";
 
 const Discover = () => {
   // const [search, setsearch] = useState("");
@@ -21,7 +21,7 @@ const Discover = () => {
   }, []);
   // py-40 px-20
   const { t, i18n } = useTranslation();
-
+  let currentLanguage = i18n.language;
   return (
     <section className="">
       <section className="descvSec py-5 md:px-10 lg:px-20">
