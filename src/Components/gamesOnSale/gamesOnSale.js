@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./GamesOnSale.css";
+import "./gamesOnSale.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -24,6 +24,7 @@ export function GamesOnSale() {
     initialSlide: 0,
     nextArrow: <button className="slick-next">Next</button>,
     prevArrow: <button className="slick-prev">Previous</button>,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -31,17 +32,17 @@ export function GamesOnSale() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: false,
+          dots: false
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
           infinite: true,
-          dots: false,
+          dots: false
         },
       },
       {
@@ -50,14 +51,14 @@ export function GamesOnSale() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: false,
+          dots: false
         },
       },
     ],
   };
 
   return (
-    <div className="container px-4">
+    <div className="container px-4 mx-auto">
       <h2 className="text-white text-2xl text-left mb-8">{t("gamesOnSale")}</h2>
       <Slider {...settings}>
         {MyGames.map((game, index) => {
@@ -71,7 +72,7 @@ export function GamesOnSale() {
                 />
                 {/* {lang==='en'?'BASE GAME':'اللعبة الاساسية'} */}
                 <p className="base-game text-left">
-                  {" "}
+                  
                   {lang === "en" ? "BASE GAME" : "اللعبة الاساسية"}
                 </p>
                 <p className="name text-left">{game.gameName}</p>

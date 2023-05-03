@@ -5,8 +5,12 @@ import "./Collections.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getGames } from "../../Store/store";
 // import changeGames from '../../Store/reducers/Games';
+import { useTranslation } from "react-i18next";
 
 const Collections = () => {
+
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
   //   const dispatch = useDispatch();
   //   let games = useSelector((state) => state.epic.games);
   //   console.log(games);
@@ -16,23 +20,23 @@ const Collections = () => {
   //     dispatch(getGames());
   //   }, []);
 
-  const games = [
-    {
-      name: "Limbo",
-      background_image:
-        "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
-    },
-    {
-      name: "God of War (2018)",
-      background_image:
-        "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
-    },
-    {
-      name: "Life is Strange",
-      background_image:
-        "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
-    },
-  ];
+  // const games = [
+  //   {
+  //     name: "Limbo",
+  //     background_image:
+  //       "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
+  //   },
+  //   {
+  //     name: "God of War (2018)",
+  //     background_image:
+  //       "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
+  //   },
+  //   {
+  //     name: "Life is Strange",
+  //     background_image:
+  //       "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
+  //   },
+  // ];
 
   // useEffect(() => {
 
@@ -49,16 +53,22 @@ const Collections = () => {
       name: "Limbo",
       background_image:
         "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
+      Description: "Uncertain of his sister's fate, a boy enters LIMBO. Winner of more than 100 awards",
+      Description_ar: 'غير مؤكد مصير أخته ، يدخل صبي إلى ليمبو. الحائز على أكثر من 100 جائزة'
     },
     {
       name: "God of War (2018)",
       background_image:
         "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
+      Description: "His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same.",
+      Description_ar: "انتقامه من آلهة أوليمبوس خلفه بسنوات ، يعيش Kratos الآن كرجل في عالم الآلهة الإسكندنافية والوحوش. في هذا العالم القاسي الذي لا يرحم يجب عليه القتال من أجل البقاء ... وتعليم ابنه أن يفعل الشيء نفسه."
     },
     {
       name: "Life is Strange",
       background_image:
         "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
+      Description: "quiet town struggling to rebuild after a strange calamity wiped out their homes. Take the role of Wes, the coyote, and help bring this village back from the brink of destruction in a puzzle-filled life sim!",
+      Description_ar: "بلدة هادئة تكافح من أجل إعادة البناء بعد كارثة غريبة دمرت منازلهم. خذ دور Wes ، ذئب البراري ، وساعد في إعادة هذه القرية من حافة الدمار في سيم الحياة المليئة بالألغاز!"
     },
   ];
 
@@ -111,8 +121,7 @@ const Collections = () => {
               </h1>
 
               <div className="inh">
-                Immerse yourself in the Star Trek universe and unravel a
-                sinister mystery.{MyGames[0].Description}
+                {lang==='en'?MyGames[0].Description:MyGames[0].Description_ar}
               </div>
               {/* <div className='inh'>{MyGames[0].Description}</div> */}
             </header>
@@ -122,7 +131,7 @@ const Collections = () => {
                 className="flex items-center no-underline  text-white"
                 href="#"
               >
-                <p className="ml-2 fotPP">Save Now</p>
+                <p className="ml-2 fotPP">{t('SaveNow')}</p>
               </a>
               <a
                 className="no-underline text-grey-darker hover:text-red-dark"
@@ -172,8 +181,7 @@ const Collections = () => {
                 </a>
               </h1>
               <div className="inh">
-                Immerse yourself in the Star Trek universe and unravel a
-                sinister mystery.
+              {lang==='en'?MyGames[1].Description:MyGames[1].Description_ar}
               </div>
             </header>
             {/* css-1h3di0n */}
@@ -182,7 +190,7 @@ const Collections = () => {
                 className="flex items-center no-underline  text-white"
                 href="#"
               >
-                <p className="ml-2 fotPP">Play For Free</p>
+                <p className="ml-2 fotPP">{t('PlayForFree')}</p>
               </a>
               <a
                 className="no-underline text-grey-darker hover:text-red-dark"
@@ -232,8 +240,7 @@ const Collections = () => {
                 </a>
               </h1>
               <div className="inh">
-                Immerse yourself in the Star Trek universe and unravel a
-                sinister mystery.
+              {lang==='en'?MyGames[2].Description:MyGames[2].Description_ar}
               </div>
             </header>
 
@@ -242,7 +249,7 @@ const Collections = () => {
                 className="flex items-center no-underline  text-white"
                 href="#"
               >
-                <p className="ml-2 fotPP">Wishlist Now</p>{" "}
+                <p className="ml-2 fotPP">{t('WishlistNow')}</p>{" "}
                 {/* border-b-neutral-700 */}
               </a>
               <a

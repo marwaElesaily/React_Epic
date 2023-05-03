@@ -87,18 +87,17 @@ const StoreSlider = () => {
     let value = parseInt(e.target.closest("div").id);
     if (value !== counter) setCounter(value);
   };
-
+  let currentLanguage = i18n.language;
   return (
     <div className={`${styles.sliderWrapper} bg-transparent`}>
       {/* section start 0_0 */}
       <div
-        className={`${styles.featured} w-fit bg-transparent`}
+        className={`${styles.featured} w-fit bg-transparent ${currentLanguage==='en'?'mr-10':'ml-10'}`}
         style={{
           backgroundImage: `url(${games[counter].Photos[0]})`,
           width: "70vw",
           height: "80vh",
-          padding: "20px",
-          marginRight: "40px",
+          padding: "20px",  
           borderRadius: "30px",
         }}
       >
@@ -123,8 +122,9 @@ const StoreSlider = () => {
       {/* section end */}
 
       <ul
-        className={styles.gamelist}
-        style={{ display: "flex", justifyContent: "center" }}
+      className="hidden sm:flex flex-col justify-center"
+        // className={styles.gamelist}
+        // style={{ display: "flex", justifyContent: "center" }}
       >
         {games.map((game, index) => (
           <li

@@ -4,55 +4,57 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser } from "../../Store/store";
 import { useFormik } from "formik";
-
-const validate = (values) => {
-  const errors = {};
-  if (!values.firstName) {
-    errors.firstName = "Required";
-  } else if (values.firstName.length > 15) {
-    errors.firstName = "Must be 15 characters or less";
-  }
-  if (!values.lastName) {
-    errors.lastName = "Required";
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "Must be 20 characters or less";
-  }
-  if (!values.displayName) {
-    errors.displayName = "Required";
-  } else if (values.displayName.length > 20) {
-    errors.displayName = "Must be 20 characters or less";
-  }
-
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-  if (!values.country) {
-    errors.country = "Required";
-  }
-  if (!values.date) {
-    errors.date = "Required";
-  }
-  if (!values.lang) {
-    errors.lang = "Required";
-  }
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (
-    !/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(
-      values.password
-    )
-  ) {
-    errors.password = "Invalid password address";
-  }
-
-  return errors;
-};
+import { useTranslation } from "react-i18next";
 
 const SignUp = () => {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const validate = (values) => {
+    const errors = {};
+    if (!values.firstName) {
+      errors.firstName =`${t('Required')}`;
+    } else if (values.firstName.length > 20) {
+      errors.firstName = `${t('validation')}`
+    }
+    if (!values.lastName) {
+      errors.lastName = `${t('Required')}`
+    } else if (values.lastName.length > 20) {
+      errors.lastName = `${t('validation')}`
+    }
+    if (!values.displayName) {
+      errors.displayName = `${t('Required')}`
+    } else if (values.displayName.length > 20) {
+      errors.displayName = `${t('validation')}`
+    }
+  
+    if (!values.email) {
+      errors.email = `${t('Required')}`;
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = `${t('InvalidEmail')}`
+    }
+    if (!values.country) {
+      errors.country = `${t('Required')}`;
+    }
+    if (!values.date) {
+      errors.date = `${t('Required')}`;
+    }
+    if (!values.lang) {
+      errors.lang = `${t('Required')}`;
+    }
+    if (!values.password) {
+      errors.password = `${t('InvalidPassword')}`;
+    } else if (
+      !/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(
+        values.password
+      )
+    ) {
+      errors.password = `${t('Required')}`
+    }
+  
+    return errors;
+  };
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -103,7 +105,7 @@ const SignUp = () => {
           alt=""
           className="object-scale-down h-10 w-10"
         />
-        <h1 className="bold text-lg font-bold">Sign Up</h1>
+        <h1 className="bold text-lg font-bold">{t('SignUp')}</h1>
         <div className="w-4/5 ">
           <form onSubmit={formik.handleSubmit}>
             <div className="flex flex-col my-3 justify-between">
@@ -115,7 +117,7 @@ const SignUp = () => {
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   type="text"
-                  placeholder="First Name"
+                  placeholder={t('FirstName')}
                   className={`bg-none border rounded ${
                     formik.errors.firstName ? "border-red-600" : "border-white"
                   } w-2/5 text-white placeholder-white p-2 bg-transparent`}
@@ -126,7 +128,7 @@ const SignUp = () => {
                   value={formik.values.lastName}
                   onChange={formik.handleChange}
                   type="text"
-                  placeholder="Last Name"
+                  placeholder={t('LastName')}
                   className={`bg-none border rounded ${
                     formik.errors.lastName ? "border-red-600" : "border-white"
                   } w-2/5 text-white placeholder-white p-2 bg-transparent`}
@@ -148,7 +150,7 @@ const SignUp = () => {
                 value={formik.values.displayName}
                 onChange={formik.handleChange}
                 type="text"
-                placeholder="Display Name"
+                placeholder={t('DisplayName')}
                 className={`bg-none border rounded ${
                   formik.errors.displayName ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
@@ -164,7 +166,7 @@ const SignUp = () => {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 type="email"
-                placeholder="Email Address"
+                placeholder={t('EmailAddress')}
                 className={`bg-none border rounded ${
                   formik.errors.email ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
@@ -180,7 +182,7 @@ const SignUp = () => {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 type="password"
-                placeholder="Password"
+                placeholder={t('Password')}
                 className={`bg-none border rounded ${
                   formik.errors.password ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
@@ -215,7 +217,7 @@ const SignUp = () => {
                 } w-full text-white placeholder-white p-2 bg-transparent`}
               >
                 {/* {countriesList} */}
-                <option value="">--Your Preferred Language--</option>
+                <option value="">{t('PreferredLanguage')}</option>
                 <option value="en">English</option>
                 <option value="ar">العربية</option>
               </select>
@@ -233,7 +235,7 @@ const SignUp = () => {
                   formik.errors.country ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
               >
-                <option value="">--Select Your Country--</option>
+                <option value="">{t('SelectCountry')}</option>
                 {countriesList}
               </select>
               {formik.errors.country ? (
@@ -244,16 +246,16 @@ const SignUp = () => {
               className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}
               type="submit"
             >
-              Submit
+              {t('Submit')}
             </button>
           </form>
         </div>
-        <div className="my-2">Already have an account ?</div>
+        <div className="my-2">{t('AlreadyHaveAccount')}</div>
         <Link
           to={"/signIn"}
           className="text-lg text-center underline transition-all hover:font-bold"
         >
-          Sign In now
+          {t('SignInnow')}
         </Link>
       </div>
     </div>

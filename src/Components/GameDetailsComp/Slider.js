@@ -47,7 +47,10 @@ const Slider = (props) => {
           <img src={game.photos && game.photos[0]} alt="" />
         </div>
         <div>
-          <img src={game.photos && game.photos[0]} alt="" />
+          <img src={game.photos && game.photos[1]} alt="" />
+        </div>
+        <div>
+          <img src={game.photos && game.photos[2]} alt="" />
         </div>
       </Carousel>
     </div>

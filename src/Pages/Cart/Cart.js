@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { epicActions, getCartList, removeFromCart } from "../../Store/store";
 import { useCallback } from "react";
 import { useState } from "react";
-import Spinner from "../../Components/Spinner/spinner";
+import Spinner from "../../Components/spinner/spinner";
 import { Link } from "react-router-dom";
 const Cart = () => {
   const { t, i18n } = useTranslation();
@@ -59,7 +59,7 @@ const Cart = () => {
                   to={"/browse"}
                   className="text-lg underline transition-all hover:font-bold"
                 >
-                  Shop For Games Now
+                 {t("ShopForGamesNow")} 
                 </Link>
                 <CartDashFill />
               </h1>
