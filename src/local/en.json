@@ -118,5 +118,6 @@
     "Password": "Password",
     "LOGIN":"LOGIN",
     "CheckEmailOrPassword":"Please Check your email or password",
-    "DonotHaveAccount":"Don't have an account ?"
+    "DonotHaveAccount":"Don't have an account ?",
+    "Genres":"Genres"
 }
