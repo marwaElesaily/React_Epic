@@ -18,7 +18,7 @@ function Browse() {
 
   const categories = useSelector((state) => state.epic.categories);
   const { t, i18n } = useTranslation();
-
+  const lang = i18n.language
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getGames());
@@ -182,8 +182,8 @@ function Browse() {
             data-te-ripple-init
             data-te-ripple-color="light"
           >
-            <span className="me-2"> {t("browse-filter")}</span>
-            <i className="bi bi-filter"></i>
+            <span className="me-2 "> {t("browse-filter")}</span>
+            <i className={`bi bi-filter`}></i>
           </div>
 
           <div
@@ -198,8 +198,8 @@ function Browse() {
               data-te-modal-dialog-ref
               className="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]"
             >
-              <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col border-none bg-black bg-clip-padding text-current shadow-lg outline-none bg-black">
-                <div className="flex h-24  flex-shrink-0 items-center justify-around  border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 accor">
+              <div className={`min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col border-none bg-black bg-clip-padding text-current shadow-lg outline-none bg-black`}>
+                <div className={`${lang==='en'?'':'mr-72'} flex h-24  flex-shrink-0 items-center justify-around  border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 accor`}>
                   <h5
                     className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
                     id="exampleModalLabel"
@@ -209,7 +209,7 @@ function Browse() {
 
                   <button
                     type="button"
-                    className="filter-button block ml-80 box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    className={`${lang === 'en' ? '' : 'mr-60 md:mr-80'} filter-button block ml-80 box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none`}
                     data-te-modal-dismiss
                     aria-label="Close"
                   >
@@ -219,7 +219,7 @@ function Browse() {
                       viewBox="0 0 24 24"
                       stroke-width="1.5"
                       stroke="currentColor"
-                      className="h-6 w-6"
+                      className={`h-6 w-6`}
                     >
                       <path
                         stroke-linecap="round"
