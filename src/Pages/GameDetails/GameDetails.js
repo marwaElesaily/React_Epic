@@ -30,18 +30,18 @@ const GameDetails = () => {
   const fullStars = Math.floor(game.Rating);
   const halfStars = Math.ceil(game.Rating - fullStars);
 
-  const geners = [];
-  if (categories.length > 0) {
-    for (let i = 0; i < game.Genres.length; i++) {
-      for (let j = 0; j < categories.length; j++) {
-        if (game.Genres[i] === categories[j]._id) {
-          geners.push(categories[j]);
-        }
-      }
-    }
-  }
+  // const geners = [];
+  // if (categories.length > 0) {
+  //   for (let i = 0; i < game.Genres.length; i++) {
+  //     for (let j = 0; j < categories.length; j++) {
+  //       if (game.Genres[i] === categories[j]._id) {
+  //         geners.push(categories[j]);
+  //       }
+  //     }
+  //   }
+  // }
 
-  console.log(geners);
+  // console.log(geners);
   for (let i = 0; i < fullStars; i++) {
     ratingIcons.push(<StarFill key={i} />);
   }
@@ -51,7 +51,6 @@ const GameDetails = () => {
   }
   return (
     <div>
-      (
       <div className="p-20 flex flex-col w-full justify-between">
         <div className="w-9/12">
           <h1 className="text-5xl">{game.gameName}</h1>
@@ -63,28 +62,33 @@ const GameDetails = () => {
               {game.Rating}
             </p>
           </div>
-          <div className="flex w-full justify-between ">
-            <div className="w-9/12">
-              <Slider game={game} />
-              <div className="mt-4 text-xl inline-block">
-                {t("Genres")} :
-                {geners.map((gener) => (
-                  <a href="#">
-                    {lang === "en" ? `${gener.name}  ` : `${gener.name_ar}  `}
-                  </a>
-                ))}
-              </div>
-              <p className="mt-4 text-xl">
-                {lang === "en" ? game.Description : game.Discription_ar}
+        </div>
+        <div className="flex w-full justify-between max-sm:flex-col  ">
+          <div className="w-9/12 max-sm:w-full max-sm:order-2 max-sm:hidden  ">
+            <Slider game={game} />
+            <div className="mt-4 text-xl inline-block">
+              {/* {t("Genres")} : */}
+              {/* {geners.map((gener) => (
+                <a href="#">
+                  {lang === "en" ? `${gener.name}  ` : `${gener.name_ar}  `}
+                </a>
+              ))} */}
+            </div>
+            <p className="mt-4 text-xl max-sm:hidden">
+              {lang === "en" ? game.Description : game.Discription_ar}
+            </p>
+            <p className="mt-12 text-4xl">{t("EpicPlayerRatings")}</p>
+            <p className="text-sm mt-2">{t("Captured")}</p>
+            <div className="flex justify-center text-5xl">
+              <p className="ml-2 p-1 flex justify-center items-center">
+                {game.Rating}
               </p>
-              <p className="mt-12 text-4xl">{t("EpicPlayerRatings")}</p>
-              <p className="text-sm mt-2">{t("Captured")}</p>
               <div className="flex justify-center items-center">
                 {ratingIcons}
               </div>
             </div>
           </div>
-          <div className="w-1/5 sticky top-0">
+          <div className="w-1/5 max-sm:w-full h-full ">
             {/* {game.photos[0]} */}
             <GameCheckout game={game} />
           </div>
