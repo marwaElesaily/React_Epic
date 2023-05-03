@@ -13,7 +13,7 @@ const Password = () => {
       <h4 className="font-bold mb-5">
         {t("id")} : <span className="font-light">{userId}</span>
       </h4>
-      <div className="flex flex-row justify-between items-center px-40">
+      <div className="flex flex-row justify-between items-center">
         <Input
           label={t("OldPassword")}
           // placeholder={"rofaalfons"}

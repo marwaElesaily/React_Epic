@@ -25,7 +25,6 @@ const TopSeller = (sec) => {
 
   useEffect(() => {
     // console.log(games);
-
     // use Redux Thunk
     dispatch(getGames());
   }, []);
