@@ -16,6 +16,7 @@ import { useCallback } from "react";
 import { useState } from "react";
 import Spinner from "../../Components/spinner/spinner";
 import { Link } from "react-router-dom";
+import Modal from "../../Components/Modal/Modal";
 const Cart = () => {
   const { t, i18n } = useTranslation();
 

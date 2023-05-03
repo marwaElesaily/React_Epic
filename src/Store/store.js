@@ -231,14 +231,20 @@ const epicSlice = createSlice({
     builder.addCase(login.rejected, (state) => {});
 
     /// addToCart
-    builder.addCase(addToCart.pending, (state) => {});
+    builder.addCase(addToCart.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(addToCart.fulfilled, (state, action) => {
+      state.loader = false;
       state.cart = action.payload.user.cart;
     });
     builder.addCase(addToCart.rejected, (state) => {});
     /// addToWishList
-    builder.addCase(addToWishList.pending, (state) => {});
+    builder.addCase(addToWishList.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(addToWishList.fulfilled, (state, action) => {
+      state.loader = false;
       state.wishList = action.payload.user.wishList;
     });
     builder.addCase(addToWishList.rejected, (state) => {});
@@ -269,15 +275,21 @@ const epicSlice = createSlice({
     });
     builder.addCase(getWishList.rejected, (state) => {});
     /// removeFromCart
-    builder.addCase(removeFromCart.pending, (state) => {});
+    builder.addCase(removeFromCart.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(removeFromCart.fulfilled, (state, action) => {
+      state.loader = false;
       state.cart = action.payload.user.cart;
       console.log(action.payload);
     });
     builder.addCase(removeFromCart.rejected, (state) => {});
     /// removeFromWishList
-    builder.addCase(removeFromWishList.pending, (state) => {});
+    builder.addCase(removeFromWishList.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(removeFromWishList.fulfilled, (state, action) => {
+      state.loader = false;
       state.wishList = action.payload.user.wishList;
       console.log(action.payload);
     });

@@ -1,5 +1,8 @@
+import { ArrowLeft } from "react-bootstrap-icons";
 import Input from "./AccountSettingComponents/Input";
 import { useTranslation } from "react-i18next";
+
+import style from "./AccountCard.module.css";
 
 import { useSelector } from "react-redux";
 
@@ -18,7 +21,7 @@ const AccountSetting = () => {
       <h4 className="font-bold mb-5">
         {t("id")} : <span className="font-light">{userId}</span>
       </h4>
-      <div className="flex flex-row justify-between items-center px-40">
+      <div className="flex flex-row justify-between items-center ">
         <Input
           label={t("Username")}
           placeholder={displayName}

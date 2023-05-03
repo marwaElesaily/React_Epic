@@ -11,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import PayPalButton from "../PayPalButton/PayPalButton";
+import SmallSpinner from "../spinner/SmallSpinner";
 
 const GameCheckout = (props) => {
   const { t, i18n } = useTranslation();
@@ -21,6 +22,7 @@ const GameCheckout = (props) => {
   const dispatch = useDispatch();
   let cart = useSelector((state) => state.epic.cart);
   let wishList = useSelector((state) => state.epic.wishList);
+  let loader = useSelector((state) => state.epic.loader);
   let userId = useSelector((state) => state.epic.id);
   let game = props.game;
   let gameExistCart = cart.some((cartGames) => cartGames._id === game._id);
@@ -53,7 +55,7 @@ const GameCheckout = (props) => {
       }
     });
   };
-  const addToWishListHandler = () => {
+  const addToWishListHandler = (e) => {
     dispatch(addToWishList({ userId, gameId: game._id }));
   };
   const addToCartHandler = () => {
