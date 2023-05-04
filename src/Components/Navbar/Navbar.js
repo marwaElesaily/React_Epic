@@ -11,7 +11,7 @@ function classNames(...classes) {
 function Navbar() {
   const { t, i18n } = useTranslation();
 
- const navigation = [
+  const navigation = [
     { name: t("discover"), to: "/", current: false },
     { name: t("browse"), to: "/browse", current: false },
     { name: t("wishlist"), to: "/wishList", current: false },
@@ -21,15 +21,15 @@ function Navbar() {
   // var Search_GameName="";
   var [Search_GameName, setSearch_GameName] = useState("");
   const [isHidden22, setIsHidden22] = useState(false);
-    const handleChange = (e) =>{
+  const handleChange = (e) => {
     // Search_GameName=e.value;
     setSearch_GameName(e.target.value);
   };
-  
-  const handleclick1 = () =>{
+
+  const handleclick1 = () => {
     setIsHidden22(true);
   };
-  const handleclick2 = () =>{
+  const handleclick2 = () => {
     setIsHidden22(false);
   };
 
@@ -70,10 +70,9 @@ function Navbar() {
                       type="text"
                       id="simple-search"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder={t('search')}
+                      placeholder={t("search")}
                       required
                     />
-                    
                   </div>
                 </form>
               </div>
@@ -100,7 +99,9 @@ function Navbar() {
                         </div>
                         <input
                           type="text"
-                          onChange={(event)=>{handleChange(event)}}
+                          onChange={(event) => {
+                            handleChange(event);
+                          }}
                           onClick={handleclick1}
                           onMouseOut={handleclick2}
                           id="simple-search"
@@ -132,9 +133,14 @@ function Navbar() {
                 </div>
               </div>
               <section
-                    style={{ backgroundColor: "#2a2a2a" }}
-                    className={` ${isHidden22 && Search_GameName ? 'block' : 'hidden'} absolute mt-24 z-10 left-9 w-36 origin-top-right rounded-md p-4`}>
-                    <p className="text-white"> { Search_GameName }</p>
+                style={{ backgroundColor: "#2a2a2a" }}
+                className={` ${
+                  isHidden22 && Search_GameName ? "block" : "hidden"
+                } absolute mt-26 z-10 left-9  w-fit origin-top-right rounded-md p-4`}
+              >
+                <p className="text-white "> {Search_GameName}</p>
+                <p className="text-white "> {Search_GameName}</p>
+                <p className="text-white "> {Search_GameName}</p>
               </section>
             </div>
           </div>
