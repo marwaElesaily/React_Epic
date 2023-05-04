@@ -20,24 +20,6 @@ const Collections = () => {
   //     dispatch(getGames());
   //   }, []);
 
-  // const games = [
-  //   {
-  //     name: "Limbo",
-  //     background_image:
-  //       "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
-  //   },
-  //   {
-  //     name: "God of War (2018)",
-  //     background_image:
-  //       "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
-  //   },
-  //   {
-  //     name: "Life is Strange",
-  //     background_image:
-  //       "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
-  //   },
-  // ];
-
   // useEffect(() => {
 
   //     // use Redux Thunk
@@ -50,37 +32,40 @@ const Collections = () => {
 
   const MyGames = [
     {
-      name: "Limbo",
+      _id: "6434816028fbef397fc88bcb",
+      name: "League of Legends",
       background_image:
-        "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
-      Description: "Uncertain of his sister's fate, a boy enters LIMBO. Winner of more than 100 awards",
-      Description_ar: 'غير مؤكد مصير أخته ، يدخل صبي إلى ليمبو. الحائز على أكثر من 100 جائزة'
+        "https://cdn1.epicgames.com/offer/24b9b5e323bc40eea252a10cdd3b2f10/LoL_1200x1600-15ad6c981af8d98f50e833eac7843986?h=480&quality=medium&resize=1&w=360",
+      Description: "Showcase your skills in the ultimate 5v5 battle arena that combines team strategy with solo mastery. Pick your role, perfect your build, and fight your way across the map to destroy the enemy Nexus. Always free to play—may the best team win.",
+      Description_ar: 'اعرض مهاراتك في ساحة معركة 5 ضد 5 المطلقة التي تجمع بين إستراتيجية الفريق والإتقان الفردي. اختر دورك ، واتقن بنائك ، وشق طريقك عبر الخريطة لتدمير العدو Nexus. دائمًا مجاني للعب - قد يفوز الفريق الأفضل',
     },
     {
-      name: "God of War (2018)",
+      _id: "6435b547b45deb54cb4dd500",
+      name: "VALORANT",
       background_image:
-        "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
-      Description: "His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same.",
-      Description_ar: "انتقامه من آلهة أوليمبوس خلفه بسنوات ، يعيش Kratos الآن كرجل في عالم الآلهة الإسكندنافية والوحوش. في هذا العالم القاسي الذي لا يرحم يجب عليه القتال من أجل البقاء ... وتعليم ابنه أن يفعل الشيء نفسه."
+        "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S2_1200x1600-03324a2dfe6b0b9557ce96f23681c859?h=480&quality=medium&resize=1&w=360",
+      Description: "VALORANT is a character-based 5v5 tactical shooter set on the global stage. Outwit, outplay, and outshine your competition with tactical abilities, precise gunplay, and adaptive teamwork. | FIGHT AROUND THE WORLD .",
+      Description_ar: "VALORANT هي لعبة إطلاق نار تكتيكية 5 ضد 5 تعتمد على الشخصيات ويتم وضعها على المسرح العالمي. خداع المنافسة وتفوقها في اللعب وتفوقها على منافسيك بقدرات تكتيكية وألعاب نارية دقيقة وعمل جماعي قابل للتكيف. | قتال في جميع أنحاء العالم."
     },
     {
-      name: "Life is Strange",
+      _id: "6434971928fbef397fc88bcd",
+      name: "PUBG BATTLEGROUNDS",
       background_image:
-        "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
-      Description: "quiet town struggling to rebuild after a strange calamity wiped out their homes. Take the role of Wes, the coyote, and help bring this village back from the brink of destruction in a puzzle-filled life sim!",
-      Description_ar: "بلدة هادئة تكافح من أجل إعادة البناء بعد كارثة غريبة دمرت منازلهم. خذ دور Wes ، ذئب البراري ، وساعد في إعادة هذه القرية من حافة الدمار في سيم الحياة المليئة بالألغاز!"
+        "https://cdn1.epicgames.com/spt-assets/53ec4985296b4facbe3a8d8d019afba9/download-pubg-battlegrounds-offer-1er5e.jpg?h=480&quality=medium&resize=1&w=360",
+      Description: "LAND, LOOT, SURVIVE! | Squad up and join the Battlegrounds for the original Battle Royale experience that only PUBG: BATTLEGROUNDS can offer. | PUBG: BATTLEGROUNDS is a free-to-play game.",
+      Description_ar: "الأرض ، الكثير ، البقاء على قيد الحياة! | شكّل فريقًا وانضم إلى Battlegrounds للاستمتاع بتجربة Battle Royale الأصلية التي لا يمكن أن تقدمها سوى PUBG: BATTLEGROUNDS. | PUBG: BATTLEGROUNDS هي لعبة مجانية للعب."
     },
   ];
 
-  const show = (id) => {
-    var p = document.getElementById(id);
-    p.className = "clPlus visible font-bold text-xs pl-1";
-  };
+  // const show = (id) => {
+  //   var p = document.getElementById(id);
+  //   p.className = "clPlus visible font-bold text-xs pl-1";
+  // };
 
-  const hide = (id) => {
-    var p = document.getElementById(id);
-    p.className = "clPlus invisible font-bold text-xs pl-1";
-  };
+  // const hide = (id) => {
+  //   var p = document.getElementById(id);
+  //   p.className = "clPlus invisible font-bold text-xs pl-1";
+  // };
 
   return (
     <div className="container my-6 mx-auto px-4 md:px-12">
@@ -91,12 +76,12 @@ const Collections = () => {
           <article className="overflow-hidden rounded-lg shadow-lg">
             <a
               href="#"
-              onMouseOver={() => {
-                show("clPlus1");
-              }}
-              onMouseOut={() => {
-                hide("clPlus1");
-              }}
+              // onMouseOver={() => {
+              //   show("clPlus1");
+              // }}
+              // onMouseOut={() => {
+              //   hide("clPlus1");
+              // }}
               style={{ position: "relative", zIndex: "1" }}
             >
               <img
@@ -105,12 +90,12 @@ const Collections = () => {
                 src={MyGames[0].background_image}
                 style={{ zIndex: "1", display: "block", objectFit: "fill" }}
               />
-              <p
+              {/* <p
                 id="clPlus1"
                 className="clPlus invisible font-bold text-xs pl-1 md:ml-11"
               >
                 +
-              </p>
+              </p> */}
             </a>
 
             <header className="block items-center justify-between leading-tight p-2 md:p-4">
@@ -152,12 +137,12 @@ const Collections = () => {
           <article className="overflow-hidden rounded-lg shadow-lg">
             <a
               href="#"
-              onMouseOver={() => {
-                show("clPlus2");
-              }}
-              onMouseOut={() => {
-                hide("clPlus2");
-              }}
+              // onMouseOver={() => {
+              //   show("clPlus2");
+              // }}
+              // onMouseOut={() => {
+              //   hide("clPlus2");
+              // }}
               style={{ position: "relative", zIndex: "1" }}
             >
               <img
@@ -166,12 +151,12 @@ const Collections = () => {
                 src={MyGames[1].background_image}
                 style={{ zIndex: "1", display: "block", objectFit: "fill" }}
               />
-              <p
+              {/* <p
                 id="clPlus2"
                 className="clPlus invisible font-bold text-xs pl-1"
               >
                 +
-              </p>
+              </p> */}
             </a>
 
             <header className="block items-center justify-between leading-tight p-2 md:p-4">
@@ -211,12 +196,12 @@ const Collections = () => {
           <article className="overflow-hidden rounded-lg shadow-lg">
             <a
               href="#"
-              onMouseOver={() => {
-                show("clPlus3");
-              }}
-              onMouseOut={() => {
-                hide("clPlus3");
-              }}
+              // onMouseOver={() => {
+              //   show("clPlus3");
+              // }}
+              // onMouseOut={() => {
+              //   hide("clPlus3");
+              // }}
               style={{ position: "relative", zIndex: "1" }}
             >
               <img
@@ -225,12 +210,12 @@ const Collections = () => {
                 src={MyGames[2].background_image}
                 style={{ zIndex: "1", display: "block", objectFit: "fill" }}
               />
-              <p
+              {/* <p
                 id="clPlus3"
                 className="clPlus invisible font-bold text-xs pl-1"
               >
                 +
-              </p>
+              </p> */}
             </a>
 
             <header className="block items-center justify-between leading-tight p-2 md:p-4">

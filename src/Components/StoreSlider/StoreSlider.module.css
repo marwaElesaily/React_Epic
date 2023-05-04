@@ -51,14 +51,25 @@
   filter: brightness(110%);
 }
 
-.featured .btnDownload {
+.featured {
   padding: 1em;
   border-radius: 5px 0 0 5px;
 }
+.btnDownload {
+  padding: 1em;
+  /* border-radius: 5px 0 0 5px; */
+}
 
-.featured .btnWishlist {
+.featured {
   padding-top: 15px;
   border-radius: 0 5px 5px 0;
+  width: 40px;
+  height: auto;
+}
+.btnWishlist {
+  padding: 1em;
+  padding-top: 15px;
+  /* border-radius: 0 5px 5px 0; */
   width: 40px;
   height: auto;
 }

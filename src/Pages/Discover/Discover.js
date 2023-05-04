@@ -40,11 +40,11 @@ const Discover = () => {
         <FreeGames></FreeGames>
       </section>
 
-      <section className="w-full h-full place-items-center mt-16 mb-10 descvSec py-5 md:px-10 lg:px-20">
-        <div className="flex  Container md:flex-row">
-          {/* section 1 */}
+      <section className="w-full h-full place-items-center mt-16 mb-5 descvSec py-5 md:px-10 md:mb-0 lg:px-20">
+        <div className="flex Container md:flex-row ">
 
-          <div className="mb-7 Section md:grid-cols-2">
+          {/* section 1 */}
+          <div className="mb-7 Section md:grid-cols-2 topSec1">
             <div className="flex mb-7 w-full header">
               <p className="title text-2xl font-bold text-left text-white">
                 {t("TopSellers")}
@@ -55,14 +55,13 @@ const Discover = () => {
             </div>
 
             {/* Games */}
-            <div className="cards">
+            <div className="cards ">
               <TopSeller props="a"></TopSeller>
             </div>
           </div>
 
           {/* section 2 */}
-
-          <div className="mb-7 Section ">
+          <div className="mb-7 Section hiddd">
             <div className="flex mb-7 w-full header">
               <p className="title text-2xl font-bold text-left text-white ">
                 {t("MostPlayed")}
@@ -79,7 +78,6 @@ const Discover = () => {
           </div>
 
           {/* section 3 */}
-
           <div
             className="mb-7 md:grid-cols-2 invisible md:visible"
             id="Section3"
@@ -103,7 +101,8 @@ const Discover = () => {
         </div>
       </section>
 
-      <section className="descvSec py-5 md:px-10 lg:px-20">
+      <section className="descvSec py-5 md:px-10 lg:px-20 CatalogClas" 
+      >
         <Catalog></Catalog>
       </section>
     </section>

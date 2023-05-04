@@ -9,22 +9,24 @@
 .fotPP:hover {
   border-bottom: 1px solid white;
 }
-.clPlus {
+/* .clPlus {
   color: white;
   border-radius: 30px;
   border: 2px solid white;
   width: 20px;
   background-color: black;
-  font-weight: 700;
-  /* margin-left: 22%; */
-  /* margin-top: -13%; */
-  margin-left: 300px;
+  font-weight: 700; */
+
+/* margin-left: 22%; */
+/* margin-top: -13%; */
+
+/* margin-left: 300px;
   margin-top: -170px;
   z-index: 11111;
   position: absolute;
-}
+} */
 
-@media (min-width: 200px) and (max-width: 580px) {
+/* @media (min-width: 200px) and (max-width: 580px) {
   .clPlus {
     margin-left: 150px;
     margin-top: -83px;
@@ -50,4 +52,4 @@
     margin-left: 220px;
     margin-top: -130px;
   }
-}
+} */
