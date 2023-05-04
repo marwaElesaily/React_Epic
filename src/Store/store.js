@@ -71,6 +71,40 @@ export const addToCart = createAsyncThunk(
     return res.data;
   }
 );
+export const updateUserDisplayName = createAsyncThunk(
+  //action type string
+  "epic/updateUserDisplayName",
+  // callback function
+  async ({ id, displayName }) => {
+    const res = await axiosInstance.patch(`/User/updateUserDisplayName/${id}`, {
+      displayName,
+    });
+    return res.data;
+  }
+);
+export const updatePassword = createAsyncThunk(
+  //action type string
+  "epic/updatePassword",
+  // callback function
+  async ({ id, oldPassword, newPassword }) => {
+    const res = await axiosInstance.patch(`/User/updatePassword/${id}`, {
+      oldPassword,
+      newPassword,
+    });
+    return res.data;
+  }
+);
+export const updateUserEmail = createAsyncThunk(
+  //action type string
+  "epic/updateUserEmail",
+  // callback function
+  async ({ id, email }) => {
+    const res = await axiosInstance.patch(`/User/updateUserEmail/${id}`, {
+      email,
+    });
+    return res.data;
+  }
+);
 export const getPurchase = createAsyncThunk(
   //action type string
   "epic/getPurchase",
@@ -324,6 +358,19 @@ const epicSlice = createSlice({
       state.purchaseHistory = action.payload.purchaseHistory;
     });
     builder.addCase(getPurchase.rejected, (state) => {});
+    ////////////
+    builder.addCase(updateUserDisplayName.pending, (state) => {});
+    builder.addCase(updateUserDisplayName.fulfilled, (state, action) => {
+      state.displayName = action.payload.displayName;
+      console.log(action.payload.displayName);
+    });
+    builder.addCase(updateUserDisplayName.rejected, (state) => {});
+    ////////////
+    builder.addCase(updateUserEmail.pending, (state) => {});
+    builder.addCase(updateUserEmail.fulfilled, (state, action) => {
+      state.displayName = action.payload.email;
+    });
+    builder.addCase(updateUserEmail.rejected, (state) => {});
   },
 });
 

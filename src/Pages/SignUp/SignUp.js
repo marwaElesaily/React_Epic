@@ -14,45 +14,47 @@ const SignUp = () => {
   const validate = (values) => {
     const errors = {};
     if (!values.firstName) {
-      errors.firstName =`${t('Required')}`;
+      errors.firstName = `${t("Required")}`;
     } else if (values.firstName.length > 20) {
-      errors.firstName = `${t('validation')}`
+      errors.firstName = `${t("validation")}`;
     }
     if (!values.lastName) {
-      errors.lastName = `${t('Required')}`
+      errors.lastName = `${t("Required")}`;
     } else if (values.lastName.length > 20) {
-      errors.lastName = `${t('validation')}`
+      errors.lastName = `${t("validation")}`;
     }
     if (!values.displayName) {
-      errors.displayName = `${t('Required')}`
+      errors.displayName = `${t("Required")}`;
     } else if (values.displayName.length > 20) {
-      errors.displayName = `${t('validation')}`
+      errors.displayName = `${t("validation")}`;
     }
-  
+
     if (!values.email) {
-      errors.email = `${t('Required')}`;
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = `${t('InvalidEmail')}`
+      errors.email = `${t("Required")}`;
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = `${t("InvalidEmail")}`;
     }
     if (!values.country) {
-      errors.country = `${t('Required')}`;
+      errors.country = `${t("Required")}`;
     }
     if (!values.date) {
-      errors.date = `${t('Required')}`;
+      errors.date = `${t("Required")}`;
     }
     if (!values.lang) {
-      errors.lang = `${t('Required')}`;
+      errors.lang = `${t("Required")}`;
     }
     if (!values.password) {
-      errors.password = `${t('InvalidPassword')}`;
+      errors.password = `${t("InvalidPassword")}`;
     } else if (
       !/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(
         values.password
       )
     ) {
-      errors.password = `${t('Required')}`
+      errors.password = `${t("Required")}`;
     }
-  
+
     return errors;
   };
   const formik = useFormik({
@@ -91,7 +93,7 @@ const SignUp = () => {
   }, []);
   let countriesList = countries.map((country, i) => {
     return (
-      <option key={i} value={country.name.common}>
+      <option className="bg-black" key={i} value={country.name.common}>
         {country.name.common}
       </option>
     );
@@ -105,7 +107,7 @@ const SignUp = () => {
           alt=""
           className="object-scale-down h-10 w-10"
         />
-        <h1 className="bold text-lg font-bold">{t('SignUp')}</h1>
+        <h1 className="bold text-lg font-bold">{t("SignUp")}</h1>
         <div className="w-4/5 ">
           <form onSubmit={formik.handleSubmit}>
             <div className="flex flex-col my-3 justify-between">
@@ -117,7 +119,7 @@ const SignUp = () => {
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   type="text"
-                  placeholder={t('FirstName')}
+                  placeholder={t("FirstName")}
                   className={`bg-none border rounded ${
                     formik.errors.firstName ? "border-red-600" : "border-white"
                   } w-2/5 text-white placeholder-white p-2 bg-transparent`}
@@ -128,7 +130,7 @@ const SignUp = () => {
                   value={formik.values.lastName}
                   onChange={formik.handleChange}
                   type="text"
-                  placeholder={t('LastName')}
+                  placeholder={t("LastName")}
                   className={`bg-none border rounded ${
                     formik.errors.lastName ? "border-red-600" : "border-white"
                   } w-2/5 text-white placeholder-white p-2 bg-transparent`}
@@ -150,7 +152,7 @@ const SignUp = () => {
                 value={formik.values.displayName}
                 onChange={formik.handleChange}
                 type="text"
-                placeholder={t('DisplayName')}
+                placeholder={t("DisplayName")}
                 className={`bg-none border rounded ${
                   formik.errors.displayName ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
@@ -166,7 +168,7 @@ const SignUp = () => {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 type="email"
-                placeholder={t('EmailAddress')}
+                placeholder={t("EmailAddress")}
                 className={`bg-none border rounded ${
                   formik.errors.email ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
@@ -182,7 +184,7 @@ const SignUp = () => {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 type="password"
-                placeholder={t('Password')}
+                placeholder={t("Password")}
                 className={`bg-none border rounded ${
                   formik.errors.password ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
@@ -217,9 +219,15 @@ const SignUp = () => {
                 } w-full text-white placeholder-white p-2 bg-transparent`}
               >
                 {/* {countriesList} */}
-                <option value="">{t('PreferredLanguage')}</option>
-                <option value="en">English</option>
-                <option value="ar">العربية</option>
+                <option className="bg-black" value="">
+                  {t("PreferredLanguage")}
+                </option>
+                <option className="bg-black" value="en">
+                  English
+                </option>
+                <option className="bg-black" value="ar">
+                  العربية
+                </option>
               </select>
               {formik.errors.lang ? (
                 <div className="text-red-600">{formik.errors.lang}</div>
@@ -235,7 +243,9 @@ const SignUp = () => {
                   formik.errors.country ? "border-red-600" : "border-white"
                 } w-full text-white placeholder-white p-2 bg-transparent`}
               >
-                <option value="">{t('SelectCountry')}</option>
+                <option className="bg-black" value="">
+                  {t("SelectCountry")}
+                </option>
                 {countriesList}
               </select>
               {formik.errors.country ? (
@@ -246,16 +256,16 @@ const SignUp = () => {
               className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}
               type="submit"
             >
-              {t('Submit')}
+              {t("Submit")}
             </button>
           </form>
         </div>
-        <div className="my-2">{t('AlreadyHaveAccount')}</div>
+        <div className="my-2">{t("AlreadyHaveAccount")}</div>
         <Link
           to={"/signIn"}
           className="text-lg text-center underline transition-all hover:font-bold"
         >
-          {t('SignInnow')}
+          {t("SignInnow")}
         </Link>
       </div>
     </div>
