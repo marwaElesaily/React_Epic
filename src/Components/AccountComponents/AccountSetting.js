@@ -5,9 +5,18 @@ import { useTranslation } from "react-i18next";
 import style from "./AccountCard.module.css";
 
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const AccountSetting = () => {
+  const [userName, setUserName] = useState("");
+  const [typedEmail, setTypedEmail] = useState("");
   const { t, i18n } = useTranslation();
+  const userNameChangeHandler = (e) => {
+    setUserName(e.target.value);
+  };
+  const emailChangeHandler = (e) => {
+    setTypedEmail(e.target.value);
+  };
 
   const userId = useSelector((state) => state.epic.id);
   const displayName = useSelector((state) => state.epic.displayName);
@@ -23,12 +32,16 @@ const AccountSetting = () => {
       </h4>
       <div className="flex flex-row justify-between items-center ">
         <Input
+          changeHandler={userNameChangeHandler}
+          value={userName}
           label={t("Username")}
           placeholder={displayName}
           type={"text"}
           content={"Username"}
         />
         <Input
+          changeHandler={emailChangeHandler}
+          value={typedEmail}
           label={t("Email")}
           placeholder={email}
           type={"email"}

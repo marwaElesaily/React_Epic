@@ -11,6 +11,8 @@ const epicState = {
   games: [],
   categories: [],
   loader: false,
+  addToCartLoader: false,
+  addToCartWishListLoader: false,
   language: "en",
   gameDetails: {},
   loggedIn: user ? true : false,
@@ -232,19 +234,19 @@ const epicSlice = createSlice({
 
     /// addToCart
     builder.addCase(addToCart.pending, (state) => {
-      state.loader = true;
+      state.addToCartLoader = true;
     });
     builder.addCase(addToCart.fulfilled, (state, action) => {
-      state.loader = false;
+      state.addToCartLoader = false;
       state.cart = action.payload.user.cart;
     });
     builder.addCase(addToCart.rejected, (state) => {});
     /// addToWishList
     builder.addCase(addToWishList.pending, (state) => {
-      state.loader = true;
+      state.addToCartWishListLoader = true;
     });
     builder.addCase(addToWishList.fulfilled, (state, action) => {
-      state.loader = false;
+      state.addToCartWishListLoader = false;
       state.wishList = action.payload.user.wishList;
     });
     builder.addCase(addToWishList.rejected, (state) => {});

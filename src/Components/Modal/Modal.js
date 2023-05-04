@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function Modal() {
-  const [showModal, setShowModal] = React.useState(false);
+export default function Modal(props) {
+  const [showModal, setShowModal] = React.useState(props.showModal);
   return (
     <>
       <button
         className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal(props.showModal)}
       >
         Open regular modal
       </button>
@@ -22,7 +22,7 @@ export default function Modal() {
                   <h3 className="text-3xl font-semibold">Modal Title</h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setShowModal(!props.showModal)}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                       x
@@ -44,14 +44,14 @@ export default function Modal() {
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setShowModal(!props.showModal)}
                   >
                     Close
                   </button>
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setShowModal(!props.showModal)}
                   >
                     Save Changes
                   </button>

@@ -23,6 +23,10 @@ const GameCheckout = (props) => {
   let cart = useSelector((state) => state.epic.cart);
   let wishList = useSelector((state) => state.epic.wishList);
   let loader = useSelector((state) => state.epic.loader);
+  let addToCartLoader = useSelector((state) => state.epic.addToCartLoader);
+  let addToCartWishListLoader = useSelector(
+    (state) => state.epic.addToCartWishListLoader
+  );
   let userId = useSelector((state) => state.epic.id);
   let game = props.game;
   let gameExistCart = cart.some((cartGames) => cartGames._id === game._id);
@@ -103,7 +107,7 @@ const GameCheckout = (props) => {
           className={"bg-transparent border-solid "}
           onClick={addToCartHandler}
         >
-          {t("ADDTOCART")}
+          {addToCartLoader ? <SmallSpinner /> : t("ADDTOCART")}
           {/* {gameExist ? `${t("REMOVEFROMCART")} ` : `${t("ADDTOCART")} `} */}
         </button>
       )}
@@ -119,7 +123,7 @@ const GameCheckout = (props) => {
           onClick={addToWishListHandler}
           className="bg-transparent border-solid"
         >
-          {t("ADDTOWISHLIST")}
+          {addToCartWishListLoader ? <SmallSpinner /> : t("ADDTOWISHLIST")}
         </button>
       )}
     </div>
