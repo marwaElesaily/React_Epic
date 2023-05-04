@@ -1,6 +1,8 @@
 .Container {
   justify-content: space-between;
   font-size: 14px !important;
+  /* height: min-content !important; */
+  /* margin-bottom: 0; */
 }
 .Section {
   width: 30%;
@@ -35,9 +37,25 @@
   left: 0;
   /* border: 2px solid white; */
 }
+.CatalogClas {
+  margin-bottom: 10%;
+}
 
 @media (max-width: 640px) {
   .descvSec {
     padding: 20px;
+    /* margin-bottom: 20%; */
+  }
+  .hiddd {
+    display: none;
+  }
+  .topSec1 {
+    width: 100%;
+    height: min-content !important;
+    margin-bottom: 0;
+  }
+  .Container {
+    height: min-content !important;
+    /* margin-bottom: 0; */
   }
 }
