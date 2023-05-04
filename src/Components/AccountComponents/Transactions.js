@@ -18,7 +18,7 @@ const Transactions = () => {
     return (
       <tr className="text-center bg-white ">
         <td>{game.gameName}</td>
-        <td>${game.Price}</td>
+        <td>{game.Price === "free" ? "FREE" : `$${game.Price}`}</td>
         <td>Purchased</td>
       </tr>
     );
