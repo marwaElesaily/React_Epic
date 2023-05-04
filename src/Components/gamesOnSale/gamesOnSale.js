@@ -46,10 +46,11 @@ export function GamesOnSale() {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
           infinite: true,
           dots: false
         },
@@ -58,8 +59,9 @@ export function GamesOnSale() {
   };
 
   return (
-    <div className="container px-4 mx-auto">
-      <h2 className="text-white text-2xl text-left mb-8">{t("gamesOnSale")}</h2>
+    <div className={`container sm:px-10 mx-auto`}>
+      <h2 className={`text-white text-2xl mb-12 ${lang === 'en' ? '' : 'text-right'}`}>{t("gamesOnSale")}</h2>
+
       <Slider {...settings}>
         {MyGames.map((game, index) => {
           return (

@@ -40,7 +40,7 @@ const FreeGames = () => {
   const lang = i18n.language;
 
   return (
-    <div className="container px-4">
+    <div className={`${lang === 'en' ? 'sm:w-full sm:m-0' : ''}   px-4 `}>
       <div className={styles.freegames}>
         <div className={styles.flexheader}>
           <div className="flex">
@@ -51,7 +51,7 @@ const FreeGames = () => {
                   <path d="M19.546 5.362a.69.69 0 0 0 .49-.203l1.037-1.037a.692.692 0 1 0-.978-.979l-1.038 1.038a.692.692 0 0 0 .489 1.181M11.792 5.16a.69.69 0 0 0 .978 0 .692.692 0 0 0 0-.979l-1.038-1.038a.692.692 0 1 0-.978.979l1.038 1.037z"></path>
                 </g>
               </svg>
-              <p className={`${styles.freeGTXT} text-center pl-12 -mt-5 ml-2`}>
+              <p className={`${styles.freeGTXT} text-center pl-12 -mt-5 ml-2 ${lang === 'en' ? '' : 'mr-20'}`}>
                 {t("freeGames")}
               </p>
             </p>
@@ -61,8 +61,8 @@ const FreeGames = () => {
           </a>
         </div>
         <div className={styles.flex}>
-          <a href="#!" className={`${styles.game} ${styles.freenow}`}>
-            <div className={styles.gameimg}>
+          <a href="#!" className={`${styles.game} ${styles.freenow} `}>
+            <div className={styles.gameimg }>
               <img
                 src={MyGames[0].background_image}
               />
@@ -117,36 +117,7 @@ const FreeGames = () => {
             </div>
           </a>
         </div>
-        {/* <div className={styles.flex}>
-          <a href="#!" className={`${styles.game} ${styles.freenow}`}>
-            <div className={styles.gameimg}>
-              <img
-                src={MyGames[2].background_image}
-              />
-            </div>
-            <div className={styles.flextext}>
-              <h4 className="flextext-bg">
-                Idle Champions of the Forgotten Realms
-              </h4>
-              {t("freeGames-FreeNow")}
-            </div>
-          </a>
-          <a href="#!" className={styles.game}>
-            <div className={styles.gameimg}>
-              <img
-                // src="https://cdn1.epicgames.com/salesEvent/salesEvent/Landscape%20-%20Apr%2029_2560x1440-557c79e2df74001427d21f75da99e87e?h=480&amp;resize=1&amp;w=854"
-                // alt="game"
-                src={MyGames[3].background_image}
-              />
-            </div>
-            <div className={styles.flextext}>
-              <h4 className="flextext-bg">
-                Idle Champions of the Forgotten Realms
-              </h4>
-              {t("freeGames-FreeNow")}
-            </div>
-          </a>
-        </div> */}
+        
       </div>
      
     </div>

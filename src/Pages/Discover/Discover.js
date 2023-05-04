@@ -101,7 +101,7 @@ const Discover = () => {
         </div>
       </section>
 
-      <section className="descvSec py-5 md:px-10 lg:px-20 CatalogClas" 
+      <section className={`descvSec py-5 md:px-10 lg:px-20 CatalogClas`} 
       >
         <Catalog></Catalog>
       </section>

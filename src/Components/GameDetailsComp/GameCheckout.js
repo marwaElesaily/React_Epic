@@ -70,7 +70,7 @@ const GameCheckout = (props) => {
   };
 
   return (
-    <div className={classes.gamesSummary}>
+    <div className={`${classes.gamesSummary} mb-32`}>
       <img src={game.photos && game.Photos[0]} alt="" />
       <div className={classes.details}>
         <div className={classes.leftCol}>
@@ -88,11 +88,15 @@ const GameCheckout = (props) => {
           <h4>{game.platForm === "windows" ? <Windows /> : <Apple />}</h4>
         </div>
       </div>
+      <div className="w-1/2">
       <PayPalButton
         PayPalCallBackFn={gamesCheckoutPayPalCallBack}
         label="buynow"
         totalPrice={game.Price}
+        
       />
+      </div>
+      
       {/* <button>{t("BUYNOW")}</button> */}
       {gameExistCart ? (
         <button
@@ -121,7 +125,7 @@ const GameCheckout = (props) => {
       ) : (
         <button
           onClick={addToWishListHandler}
-          className="bg-transparent border-solid"
+          className="bg-transparent border-solid "
         >
           {addToCartWishListLoader ? <SmallSpinner /> : t("ADDTOWISHLIST")}
         </button>

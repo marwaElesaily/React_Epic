@@ -7,9 +7,10 @@ import { useTranslation } from 'react-i18next';
 const Catalog = () => {
 
     const { t, i18n } = useTranslation();
+  const lang = i18n.language
 
     return (
-        <div className="flex flex-col rounded-lg shadow-lg md:flex-row" id='catalogCD' >
+        <div className={`${lang==='en'?'':''} flex flex-col rounded-lg shadow-lg md:flex-row`} id='catalogCD' >
             <img
                 className="h-auto object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
                 src="download.avif"

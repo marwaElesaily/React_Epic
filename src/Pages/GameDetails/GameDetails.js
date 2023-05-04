@@ -51,7 +51,7 @@ const GameDetails = () => {
   }
   return (
     <div>
-      <div className="p-20 flex flex-col w-full justify-between">
+      <div className="mb-96 sm:mb-16  p-20 flex flex-col w-full justify-between">
         <div className="w-9/12">
           <h1 className="text-5xl">{game.gameName}</h1>
           <div className="flex py-3 ">

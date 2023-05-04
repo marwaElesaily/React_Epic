@@ -69,9 +69,9 @@ const Collections = () => {
 
   return (
     <div className="container my-6 mx-auto px-4 md:px-12">
-      <div className="flex flex-wrap -mx-1 lg:-mx-4">
+      <div className="flex flex-wrap sm:flex-wrap md:flex-nowrap -mx-1 lg:-mx-4">
         {/* <!-- Column --> */}
-        <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 mb-9">
+        <div className="my-1 px-1 w-full  md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 mb-9">
           {/* <!-- Article 1 --> */}
           <article className="overflow-hidden rounded-lg shadow-lg">
             <a
@@ -86,7 +86,7 @@ const Collections = () => {
             >
               <img
                 alt="Placeholder"
-                className="block h-auto w-full rounded-lg opacity-80 hover:opacity-100"
+                className="block h-auto w-3/4 rounded-lg opacity-80 hover:opacity-100"
                 src={MyGames[0].background_image}
                 style={{ zIndex: "1", display: "block", objectFit: "fill" }}
               />
@@ -147,7 +147,7 @@ const Collections = () => {
             >
               <img
                 alt="Placeholder"
-                className="block h-auto w-full rounded-lg opacity-80 hover:opacity-100"
+                className="block h-auto w-3/4 rounded-lg opacity-80 hover:opacity-100"
                 src={MyGames[1].background_image}
                 style={{ zIndex: "1", display: "block", objectFit: "fill" }}
               />
@@ -206,7 +206,7 @@ const Collections = () => {
             >
               <img
                 alt="Placeholder"
-                className="block h-auto w-full rounded-lg opacity-80 hover:opacity-100"
+                className="block h-auto w-3/4 rounded-lg opacity-80 hover:opacity-100"
                 src={MyGames[2].background_image}
                 style={{ zIndex: "1", display: "block", objectFit: "fill" }}
               />

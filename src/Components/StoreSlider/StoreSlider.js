@@ -159,7 +159,7 @@ const StoreSlider = () => {
                 }}
                 className="rounded-lg mt-3 md:m-0"
               />
-              <p className="text-sm w-full h-full bg-transparent flex items-center text-left sm:text-center ">
+              <p className="text-xs w-full h-full bg-transparent flex items-center  text-center ">
                 {game.gameName}
               </p>
             </div>

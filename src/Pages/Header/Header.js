@@ -91,7 +91,7 @@ const Header = () => {
             onClick={handleClick}
               data-collapse-toggle="navbar-multi-level"
               type="button"
-              className="relative w-14 h-full m-0 inline-flex md:hidden items-center justify-center p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className={`relative w-14 h-full m-0 inline-flex md:hidden items-center justify-center p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}
               aria-controls="navbar-multi-level"
               aria-expanded="true"
               style={{ backgroundColor: "#0078f2" }}
@@ -295,7 +295,7 @@ const Header = () => {
           {t("downloadButton")}
         </a>
 
-            <nav className={`myMenu ${isMenuOpen ? 'block' : 'hidden'} absolute z-10 mt-14 right-0 p-1 w-36 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`} style={{ backgroundColor: "#2a2a2a" }}>
+            <nav className={`${currentLanguage === 'en' ? 'right-0' : 'left-0'} m-1.5 myMenu md:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute z-10 mt-14  p-1 w-36 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`} style={{ backgroundColor: "#2a2a2a" }}>
               {/* user */}
                   <div style={{ color: "#c2c2c2" }} className="flex border-b border-slate-400 border-1">
                     <button className="inline-flex w-full justify-center gap-x-1.5 bg-transparent pr-8 pl-2 text-sm items-center text-inherit hover:text-white">

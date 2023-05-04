@@ -9,8 +9,8 @@ const PayPalButton = (props) => {
       }}
     >
       <PayPalButtons
-        className="w-full"
-        style={{ color: "blue", label: props.label }}
+        className="mt-28"
+        style={{ color: "blue", label: props.label, width:"50px"}}
         createOrder={(data, actions) => {
           return actions.order.create({
             purchase_units: [
