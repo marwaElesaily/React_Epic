@@ -11,6 +11,8 @@ const epicState = {
   games: [],
   categories: [],
   loader: false,
+  addToCartLoader: false,
+  addToCartWishListLoader: false,
   language: "en",
   gameDetails: {},
   loggedIn: user ? true : false,
@@ -240,14 +242,20 @@ const epicSlice = createSlice({
     builder.addCase(login.rejected, (state) => {});
 
     /// addToCart
-    builder.addCase(addToCart.pending, (state) => {});
+    builder.addCase(addToCart.pending, (state) => {
+      state.addToCartLoader = true;
+    });
     builder.addCase(addToCart.fulfilled, (state, action) => {
+      state.addToCartLoader = false;
       state.cart = action.payload.user.cart;
     });
     builder.addCase(addToCart.rejected, (state) => {});
     /// addToWishList
-    builder.addCase(addToWishList.pending, (state) => {});
+    builder.addCase(addToWishList.pending, (state) => {
+      state.addToCartWishListLoader = true;
+    });
     builder.addCase(addToWishList.fulfilled, (state, action) => {
+      state.addToCartWishListLoader = false;
       state.wishList = action.payload.user.wishList;
     });
     builder.addCase(addToWishList.rejected, (state) => {});
@@ -278,8 +286,11 @@ const epicSlice = createSlice({
     });
     builder.addCase(getWishList.rejected, (state) => {});
     /// removeFromCart
-    builder.addCase(removeFromCart.pending, (state) => {});
+    builder.addCase(removeFromCart.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(removeFromCart.fulfilled, (state, action) => {
+      state.loader = false;
       state.cart = action.payload.user.cart;
       console.log(action.payload);
     });
@@ -291,8 +302,11 @@ const epicSlice = createSlice({
     });
     builder.addCase(removeAllFromCart.rejected, (state) => {});
     /// removeFromWishList
-    builder.addCase(removeFromWishList.pending, (state) => {});
+    builder.addCase(removeFromWishList.pending, (state) => {
+      state.loader = true;
+    });
     builder.addCase(removeFromWishList.fulfilled, (state, action) => {
+      state.loader = false;
       state.wishList = action.payload.user.wishList;
       console.log(action.payload);
     });

@@ -101,17 +101,17 @@ const StoreSlider = () => {
           borderRadius: "30px",
         }}
       >
-        <div className={styles.itemText}>
-          <h3 className="bg-transparent text-left text-white text-xl ">
+        <div className={`${styles.itemText} `}>
+          <h3 className={`bg-transparent text-white text-xl ${currentLanguage==='en'?'text-left':'text-center'}`}>
             {games[counter].gameName}
           </h3>
           <div className={`${styles.buttons} bg-transparent`}>
-            <a href="#!" className={`${styles.btn} ${styles.btnDownload}`}>
+            <a href="#!" className={`${styles.btn} ${styles.btnDownload} ${currentLanguage==='en'?'rounded-l-lg':'rounded-r-lg'}`}>
               {t("slider-downloadNow")}
             </a>
             <a
               href="#!"
-              className={`${styles.btn} ${styles.btnWishlist}`}
+              className={`${styles.btn} ${styles.btnWishlist} ${currentLanguage==='en'?'rounded-r-lg':'rounded-l-lg'}`}
               style={{ fontWeight: "700" }}
             >
               +
@@ -122,7 +122,7 @@ const StoreSlider = () => {
       {/* section end */}
 
       <ul
-      className="hidden sm:flex flex-col justify-center"
+      className="hidden sm:flex flex-col justify-center "
         // className={styles.gamelist}
         // style={{ display: "flex", justifyContent: "center" }}
       >
@@ -130,12 +130,14 @@ const StoreSlider = () => {
           <li
             key={game.id}
             onClick={onClick}
+            // className='h-auto'
             style={{
               display: "flex",
               height: "70px",
               marginBottom: "10px",
               justifyContent: "center",
             }}
+            
           >
             {/* className='w-48' */}
             <div
@@ -153,10 +155,11 @@ const StoreSlider = () => {
                   height: "55px",
                   marginRight: "10px",
                   marginLeft: "5px",
+                  marginTop: "10px",
                 }}
-                className="rounded-lg"
+                className="rounded-lg mt-3 md:m-0"
               />
-              <p className="text-sm w-full h-full bg-transparent ">
+              <p className="text-sm w-full h-full bg-transparent flex items-center text-left sm:text-center ">
                 {game.gameName}
               </p>
             </div>

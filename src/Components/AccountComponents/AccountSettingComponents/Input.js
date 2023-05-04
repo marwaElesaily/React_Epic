@@ -3,10 +3,11 @@ import Button from "./button";
 import { useState } from "react";
 
 const Input = (props) => {
-  const [inputEnabled, setInputEnabled] = useState(false);
+  const [inputEnabled, setInputEnabled] = useState(true);
   function inputEnableHandler() {
-    setInputEnabled(!inputEnabled);
+    setInputEnabled(false);
   }
+  const changeHandler = props.changeHandler;
   return (
     <div className="flex flex-row justify-start items-end">
       <form>
@@ -15,9 +16,11 @@ const Input = (props) => {
             {props.label}
           </span>
           <input
+            onChange={changeHandler}
+            value={props.value}
             type={props.type}
             placeholder={props.placeholder}
-            disabled={!inputEnabled && true}
+            disabled={inputEnabled}
             className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
@@ -29,8 +32,8 @@ const Input = (props) => {
       </form>
       <Button
         inputEnableHandler={inputEnableHandler}
-        icon={inputEnabled ? <CheckCircleFill /> : <PencilFill />}
-        class={inputEnabled ? "bg-green-600" : "bg-primary"}
+        icon={!inputEnabled ? <CheckCircleFill /> : <PencilFill />}
+        class={!inputEnabled ? "bg-green-600" : "bg-primary"}
         id={props.id}
       />
     </div>

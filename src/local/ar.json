@@ -118,5 +118,6 @@
   "Password": "كلمة المرور",
   "LOGIN":"تسجيل الدخول",
   "CheckEmailOrPassword":"كلمة المرور او الايميل غير صالحين",
-  "DonotHaveAccount":"ليس لديك حساب على Epic Games"
+  "DonotHaveAccount":"ليس لديك حساب على Epic Games",
+  "Genres":"الأنواع"
 }

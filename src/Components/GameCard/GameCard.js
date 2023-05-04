@@ -42,7 +42,7 @@ const GameCard = (props) => {
             onClick={removeFromCartorWishListHandler}
             className="hover:font-bold"
           >
-            {loader ? loader : t("Remove")}
+            {t("Remove")}
           </h6>
         </div>
       </div>

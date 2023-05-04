@@ -25,7 +25,6 @@ const TopSeller = (sec) => {
 
   useEffect(() => {
     // console.log(games);
-
     // use Redux Thunk
     dispatch(getGames());
   }, []);
@@ -68,7 +67,7 @@ const TopSeller = (sec) => {
           >
             <div className="flex flex-col items-center rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:hover:bg-gray-700">
               <img
-                className="bg-transparent object-cover rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg p-4"
+                className="bg-transparent p-4 object-cover rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg sm:w-full"
                 src={`${game.Photos[0]}`}
                 alt="Game"
                 style={{

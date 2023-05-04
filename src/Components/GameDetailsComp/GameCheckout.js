@@ -11,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import PayPalButton from "../PayPalButton/PayPalButton";
+import SmallSpinner from "../spinner/SmallSpinner";
 
 const GameCheckout = (props) => {
   const { t, i18n } = useTranslation();
@@ -21,6 +22,11 @@ const GameCheckout = (props) => {
   const dispatch = useDispatch();
   let cart = useSelector((state) => state.epic.cart);
   let wishList = useSelector((state) => state.epic.wishList);
+  let loader = useSelector((state) => state.epic.loader);
+  let addToCartLoader = useSelector((state) => state.epic.addToCartLoader);
+  let addToCartWishListLoader = useSelector(
+    (state) => state.epic.addToCartWishListLoader
+  );
   let userId = useSelector((state) => state.epic.id);
   let game = props.game;
   let gameExistCart = cart.some((cartGames) => cartGames._id === game._id);
@@ -53,7 +59,7 @@ const GameCheckout = (props) => {
       }
     });
   };
-  const addToWishListHandler = () => {
+  const addToWishListHandler = (e) => {
     dispatch(addToWishList({ userId, gameId: game._id }));
   };
   const addToCartHandler = () => {
@@ -101,7 +107,7 @@ const GameCheckout = (props) => {
           className={"bg-transparent border-solid "}
           onClick={addToCartHandler}
         >
-          {t("ADDTOCART")}
+          {addToCartLoader ? <SmallSpinner /> : t("ADDTOCART")}
           {/* {gameExist ? `${t("REMOVEFROMCART")} ` : `${t("ADDTOCART")} `} */}
         </button>
       )}
@@ -117,7 +123,7 @@ const GameCheckout = (props) => {
           onClick={addToWishListHandler}
           className="bg-transparent border-solid"
         >
-          {t("ADDTOWISHLIST")}
+          {addToCartWishListLoader ? <SmallSpinner /> : t("ADDTOWISHLIST")}
         </button>
       )}
     </div>

@@ -2,6 +2,7 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -17,6 +18,20 @@ function Navbar() {
     { name: t("cart"), to: "/cart", current: false },
     { name: t("account"), to: "/account/setting", current: false },
   ];
+  // var Search_GameName="";
+  var [Search_GameName, setSearch_GameName] = useState("");
+  const [isHidden22, setIsHidden22] = useState(false);
+    const handleChange = (e) =>{
+    // Search_GameName=e.value;
+    setSearch_GameName(e.target.value);
+  };
+  
+  const handleclick1 = () =>{
+    setIsHidden22(true);
+  };
+  const handleclick2 = () =>{
+    setIsHidden22(false);
+  };
 
   return (
     <Disclosure as="nav" style={{ backgroundColor: "rgb(18, 18, 18)" }}>
@@ -58,6 +73,7 @@ function Navbar() {
                       placeholder={t('search')}
                       required
                     />
+                    
                   </div>
                 </form>
               </div>
@@ -84,11 +100,16 @@ function Navbar() {
                         </div>
                         <input
                           type="text"
+                          onChange={(event)=>{handleChange(event)}}
+                          onClick={handleclick1}
+                          onMouseOut={handleclick2}
                           id="simple-search"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                           placeholder={t("search")}
                           required
+                          value={Search_GameName}
                         ></input>
+                        {/* value={Search_GameName} */}
                       </div>
                     </form>
 
@@ -110,6 +131,11 @@ function Navbar() {
                   </div>
                 </div>
               </div>
+              <section
+                    style={{ backgroundColor: "#2a2a2a" }}
+                    className={` ${isHidden22 && Search_GameName ? 'block' : 'hidden'} absolute mt-24 z-10 left-9 w-36 origin-top-right rounded-md p-4`}>
+                    <p className="text-white"> { Search_GameName }</p>
+              </section>
             </div>
           </div>
 
